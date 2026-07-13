@@ -57,7 +57,7 @@ export default function ContactPage() {
             <MapPin className="mt-0.5 shrink-0 text-accent" size={20} />
             <div>
               <p className="font-heading text-sm font-semibold text-ink">Address</p>
-              <p className="text-sm text-ink/60">{siteConfig.address}</p>
+              <a href={siteConfig.mapsLink} target="_blank" rel="noopener noreferrer" className="text-sm text-ink/60 hover:text-primary">{siteConfig.address}</a>
             </div>
           </div>
         </div>

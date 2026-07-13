@@ -9,6 +9,7 @@ export const siteConfig = {
   fax: "+961 7 530 986",
   email: "info@traboulsiest.com",
   address: "Deir el Zahrani, Nabatieh, Lebanon",
+  mapsLink: "https://maps.app.goo.gl/ckmX7kDXxTYcbRuP8",
   facebook: "https://www.facebook.com/Traboulsi-EST-1156765484422607",
   mapsEmbed: "https://maps.google.com/maps?q=33.4338035,35.4443397&z=17&output=embed",
   logo: "https://traboulsiest.com/images/logo.png",

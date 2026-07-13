@@ -194,10 +194,15 @@ export default function HomePage() {
                   <Mail size={17} className="shrink-0 text-accent" />
                   <a href={`mailto:${siteConfig.email}`} className="hover:text-primary">{siteConfig.email}</a>
                 </div>
-                <div className="flex items-start gap-3 text-sm text-ink/70 sm:col-span-2">
+                <a
+                  href={siteConfig.mapsLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-3 text-sm text-ink/70 hover:text-primary sm:col-span-2"
+                >
                   <MapPin size={17} className="mt-0.5 shrink-0 text-accent" />
                   {siteConfig.address}
-                </div>
+                </a>
               </div>
             </Reveal>
 

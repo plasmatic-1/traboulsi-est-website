@@ -52,9 +52,9 @@ export default function Footer() {
           <p className="mt-2 flex items-start gap-2 text-sm text-white/80">
             <Mail size={16} className="mt-0.5 shrink-0" /> {siteConfig.email}
           </p>
-          <p className="mt-2 flex items-start gap-2 text-sm text-white/80">
-            <MapPin size={16} className="mt-0.5 shrink-0" /> {siteConfig.address}
-          </p>
+            <a href={siteConfig.mapsLink} target="_blank" rel="noopener noreferrer" className="flex items-start gap-2 text-sm text-white/80 hover:text-white">
+              <MapPin size={16} className="mt-0.5 shrink-0" /> {siteConfig.address}
+            </a>
         </div>
       </div>
       <div className="border-t border-white/10 py-5 text-center text-xs text-white/60">
