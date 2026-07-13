@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Reveal from "@/components/Reveal";
-import { ShieldCheck, Factory, HeartHandshake } from "lucide-react";
+import { LineChart, Award, Globe2, Wrench } from "lucide-react";
 import { siteConfig } from "@/lib/siteConfig";
 
 export const metadata: Metadata = {
@@ -9,65 +9,80 @@ export const metadata: Metadata = {
   description: "Traboulsi Est. for Trading & Industry — a trusted Lebanese supplier of commercial kitchen equipment since 1982, based in Deir el Zahrani.",
 };
 
+const features = [
+  { icon: LineChart, label: "In-house Manufacturing" },
+  { icon: Award, label: "Industrial-grade Quality" },
+  { icon: Globe2, label: "Local & International Markets" },
+  { icon: Wrench, label: "Lifetime of Experience" },
+];
+
+const stats = [
+  { value: `${siteConfig.founded}`, label: "Established" },
+  { value: "40+", label: "Years of Experience" },
+  { value: "1000+", label: "Products Delivered" },
+  { value: "6", label: "Sectors Served" },
+];
+
 export default function AboutPage() {
   return (
     <>
       <section className="container-x py-16 sm:py-20">
-        <p className="section-label">About Us</p>
-        <h1 className="max-w-2xl text-balance font-heading text-4xl font-bold text-ink">
-          A trusted name in commercial equipment since {siteConfig.founded}
-        </h1>
+        <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
+          <Reveal>
+            <div className="relative h-72 overflow-hidden rounded-lg sm:h-[420px]">
+              <Image
+                src={siteConfig.aboutImage}
+                alt={`${siteConfig.fullName} storefront`}
+                fill
+                className="object-cover"
+              />
+              <div className="absolute bottom-0 right-0 bg-accent px-8 py-6 text-white">
+                <p className="font-heading text-4xl font-bold leading-none">40+</p>
+                <p className="mt-1 text-sm text-white/90">Years of Industry</p>
+              </div>
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.1}>
+            <p className="section-label">About Us</p>
+            <h1 className="mb-6 max-w-lg text-balance font-heading text-4xl font-bold text-ink">
+              Manufacturing refrigerators &amp; grills since {siteConfig.founded}
+            </h1>
+            <p className="mb-4 text-ink/70">
+              {siteConfig.fullName} is a highly advanced company experienced in manufacturing
+              refrigerators and grill equipment, owned and managed by people with a lifetime of
+              experience in industry and trade. Located in Deir el Zahrani, Lebanon.
+            </p>
+            <p className="mb-8 text-ink/70">
+              Since {siteConfig.founded}, we&apos;ve developed our factory to fulfill the growing
+              local and international demand for industrial heating and cooling equipment —
+              distinguished by the latest industrial technologies and quality for long-term
+              performance and efficient functioning.
+            </p>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              {features.map((f) => (
+                <div key={f.label} className="flex items-center gap-3">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-accent/10">
+                    <f.icon className="text-accent" size={20} />
+                  </span>
+                  <p className="font-heading text-sm font-semibold text-ink">{f.label}</p>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+        </div>
       </section>
 
-      <section className="container-x grid items-center gap-10 pb-20 lg:grid-cols-2">
-        <Reveal>
-          <div className="relative h-72 overflow-hidden rounded-lg sm:h-96">
-            <Image
-              src={siteConfig.aboutImage}
-              alt="Traboulsi Est. equipment"
-              fill
-              className="object-cover"
-            />
-          </div>
-        </Reveal>
-        <Reveal delay={0.1}>
-          <p className="mb-4 text-ink/70">
-            {siteConfig.fullName} is located in Deir el Zahrani, Lebanon, and has been serving the
-            local and international market since {siteConfig.founded}. We are a highly experienced
-            company in manufacturing refrigerators and grill equipment, owned and managed by
-            people with a lifetime of experience in industry and trade.
-          </p>
-          <p className="mb-4 text-ink/70">
-            We produce cooling equipment such as refrigerators and freezers for supermarkets,
-            butcheries, kitchens and hospitals, alongside industrial ovens for pastries and sweets,
-            grills, nut roasters and croissant heaters — built to meet the needs of Lebanon&apos;s
-            well-known pastry and bakery traditions.
-          </p>
-          <p className="text-ink/70">
-            Our stainless steel equipment range includes work tables, sinks, kitchen cupboards,
-            hoods and aspirators, dishwashing machines, and a wide set of processing equipment —
-            slicers, choppers, peelers and mincers — for a fully equipped commercial kitchen.
-          </p>
-        </Reveal>
-      </section>
-
-      <section className="bg-surface py-20">
-        <div className="container-x grid gap-6 sm:grid-cols-3">
-          <Reveal className="card p-7">
-            <Factory className="mb-4 text-accent" size={28} />
-            <h3 className="mb-2 font-heading text-lg font-semibold text-ink">Industrial Expertise</h3>
-            <p className="text-sm text-ink/60">Decades of manufacturing experience in refrigeration and heating equipment.</p>
-          </Reveal>
-          <Reveal delay={0.08} className="card p-7">
-            <ShieldCheck className="mb-4 text-accent" size={28} />
-            <h3 className="mb-2 font-heading text-lg font-semibold text-ink">Quality & Reliability</h3>
-            <p className="text-sm text-ink/60">Equipment built with the latest technology for long-term, efficient performance.</p>
-          </Reveal>
-          <Reveal delay={0.16} className="card p-7">
-            <HeartHandshake className="mb-4 text-accent" size={28} />
-            <h3 className="mb-2 font-heading text-lg font-semibold text-ink">Customer Service</h3>
-            <p className="text-sm text-ink/60">Reliable after-sales support for every business we equip.</p>
-          </Reveal>
+      {/* Stats band */}
+      <section className="bg-primary-dark py-16">
+        <div className="container-x grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+          {stats.map((s, i) => (
+            <Reveal key={s.label} delay={i * 0.08} className="text-center sm:text-left">
+              <p className="font-heading text-4xl font-bold text-accent sm:text-5xl">{s.value}</p>
+              <p className="mt-2 text-sm text-white/70">{s.label}</p>
+            </Reveal>
+          ))}
         </div>
       </section>
     </>

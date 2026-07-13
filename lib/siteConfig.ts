@@ -10,7 +10,7 @@ export const siteConfig = {
   email: "info@traboulsiest.com",
   address: "Deir el Zahrani, Nabatieh, Lebanon",
   facebook: "https://www.facebook.com/Traboulsi-EST-1156765484422607",
-  mapsEmbed: "https://www.google.com/maps?q=Deir+el+Zahrani+Nabatieh+Lebanon&output=embed",
+  mapsEmbed: "https://maps.google.com/maps?q=33.4338035,35.4443397&z=17&output=embed",
   logo: "https://traboulsiest.com/images/logo.png",
   heroImages: [
     "https://traboulsiest.com/uploads/banner/1950x960/trab.jpg",

@@ -18,7 +18,9 @@ export default function ContactPage() {
 
       <div className="grid gap-10 lg:grid-cols-2">
         <div>
-          <ContactForm />
+          <div className="card p-7">
+            <ContactForm />
+          </div>
 
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
             <div className="card flex items-center gap-3 p-5">
