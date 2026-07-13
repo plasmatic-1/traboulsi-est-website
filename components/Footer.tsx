@@ -38,7 +38,7 @@ export default function Footer() {
             <Link href="/industries" className="hover:text-white">Industries We Serve</Link>
             <Link href="/about" className="hover:text-white">About Us</Link>
             <Link href="/clients" className="hover:text-white">Our Clients</Link>
-            <Link href="/contact" className="hover:text-white">Contact</Link>
+            <Link href="/#contact" className="hover:text-white">Contact</Link>
           </div>
         </div>
 

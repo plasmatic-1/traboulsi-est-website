@@ -1,8 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, ShieldCheck, Award, Users, Clock, Wrench } from "lucide-react";
+import { ArrowRight, ShieldCheck, Award, Users, Clock, Wrench, Phone, Mail, MapPin } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import ProductCard from "@/components/ProductCard";
+import ContactForm from "@/components/ContactForm";
 import { siteConfig } from "@/lib/siteConfig";
 import { products, categories, categorySlugs } from "@/lib/products";
 import { industries } from "@/lib/clients";
@@ -52,7 +53,7 @@ export default function HomePage() {
               <Link href="/products" className="btn-accent">
                 View Products <ArrowRight size={16} />
               </Link>
-              <Link href="/contact" className="btn-outline !border-white !text-white hover:!bg-white hover:!text-primary">
+              <Link href="#contact" className="btn-outline !border-white !text-white hover:!bg-white hover:!text-primary">
                 Contact Us
               </Link>
             </div>
@@ -168,18 +169,51 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="bg-primary py-16">
-        <div className="container-x flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
-          <div>
-            <h2 className="font-heading text-2xl font-bold text-white sm:text-3xl">
+      {/* Contact — embedded directly, no click-through needed */}
+      <section id="contact" className="bg-surface py-20">
+        <div className="container-x">
+          <Reveal>
+            <p className="section-label">Get In Touch</p>
+            <h2 className="mb-10 max-w-xl text-balance font-heading text-3xl font-bold text-ink sm:text-4xl">
               Ready to equip your business?
             </h2>
-            <p className="mt-2 text-white/75">Get in touch for a quote or product consultation.</p>
+          </Reveal>
+
+          <div className="grid gap-10 lg:grid-cols-2">
+            <Reveal delay={0.1}>
+              <div className="card p-7">
+                <ContactForm />
+              </div>
+
+              <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                <div className="flex items-center gap-3 text-sm text-ink/70">
+                  <Phone size={17} className="shrink-0 text-accent" />
+                  <a href={siteConfig.phoneHref} className="hover:text-primary">{siteConfig.phone}</a>
+                </div>
+                <div className="flex items-center gap-3 text-sm text-ink/70">
+                  <Mail size={17} className="shrink-0 text-accent" />
+                  <a href={`mailto:${siteConfig.email}`} className="hover:text-primary">{siteConfig.email}</a>
+                </div>
+                <div className="flex items-start gap-3 text-sm text-ink/70 sm:col-span-2">
+                  <MapPin size={17} className="mt-0.5 shrink-0 text-accent" />
+                  {siteConfig.address}
+                </div>
+              </div>
+            </Reveal>
+
+            <Reveal delay={0.18}>
+              <div className="h-80 overflow-hidden rounded-lg border border-line lg:h-full">
+                <iframe
+                  src={siteConfig.mapsEmbed}
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  loading="lazy"
+                  title="Traboulsi Est. location map"
+                />
+              </div>
+            </Reveal>
           </div>
-          <Link href="/contact" className="btn-accent shrink-0">
-            Contact Us <ArrowRight size={16} />
-          </Link>
         </div>
       </section>
     </>

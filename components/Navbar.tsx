@@ -13,7 +13,7 @@ const links = [
   { href: "/industries", label: "Industries" },
   { href: "/about", label: "About Us" },
   { href: "/clients", label: "Our Clients" },
-  { href: "/contact", label: "Contact" },
+  { href: "/#contact", label: "Contact" },
 ];
 
 export default function Navbar() {
