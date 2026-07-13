@@ -1,0 +1,22 @@
+export const siteConfig = {
+  name: "Traboulsi Est.",
+  fullName: "Traboulsi Est. for Trading & Industry",
+  tagline: "Commercial Kitchen Equipment for Restaurants, Hotels, Hospitals & Supermarkets",
+  phone: "+961 7 530 986",
+  phoneHref: "tel:+9617530986",
+  mobile: "+961 3 829 906",
+  mobileHref: "tel:+9613829906",
+  fax: "+961 7 530 986",
+  email: "info@traboulsiest.com",
+  address: "Deir el Zahrani, Nabatieh, Lebanon",
+  facebook: "https://www.facebook.com/Traboulsi-EST-1156765484422607",
+  mapsEmbed: "https://www.google.com/maps?q=Deir+el+Zahrani+Nabatieh+Lebanon&output=embed",
+  logo: "https://traboulsiest.com/images/logo.png",
+  heroImages: [
+    "https://traboulsiest.com/uploads/banner/1950x960/trab.jpg",
+    "https://traboulsiest.com/uploads/banner/1950x960/trab2.jpg",
+    "https://traboulsiest.com/uploads/banner/1950x960/trab3.jpg",
+  ],
+  aboutImage: "https://traboulsiest.com/uploads/about_us/530x400/tra1.jpg",
+  founded: 1982,
+};
