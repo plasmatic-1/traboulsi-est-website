@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, ShieldCheck, Award, Users, Clock, Wrench, Phone, Mail, MapPin } from "lucide-react";
+import { ArrowRight, ShieldCheck, Award, Users, Clock, Wrench, Phone, Mail, MapPin, Smartphone, Printer } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import ProductCard from "@/components/ProductCard";
 import ContactForm from "@/components/ContactForm";
@@ -188,7 +188,15 @@ export default function HomePage() {
               <div className="mt-6 grid gap-4 sm:grid-cols-2">
                 <div className="flex items-center gap-3 text-sm text-ink/70">
                   <Phone size={17} className="shrink-0 text-accent" />
-                  <a href={siteConfig.phoneHref} className="hover:text-primary">{siteConfig.phone}</a>
+                  <span><span className="text-ink/50">Tel:</span> <a href={siteConfig.phoneHref} className="hover:text-primary">{siteConfig.phone}</a></span>
+                </div>
+                <div className="flex items-center gap-3 text-sm text-ink/70">
+                  <Smartphone size={17} className="shrink-0 text-accent" />
+                  <span><span className="text-ink/50">Mobile:</span> <a href={siteConfig.mobileHref} className="hover:text-primary">{siteConfig.mobile}</a></span>
+                </div>
+                <div className="flex items-center gap-3 text-sm text-ink/70">
+                  <Printer size={17} className="shrink-0 text-accent" />
+                  <span><span className="text-ink/50">Fax:</span> {siteConfig.fax}</span>
                 </div>
                 <div className="flex items-center gap-3 text-sm text-ink/70">
                   <Mail size={17} className="shrink-0 text-accent" />
