@@ -4,9 +4,11 @@ import { ArrowRight, ShieldCheck, Award, Users, Clock, Wrench, Phone, Mail, MapP
 import Reveal from "@/components/Reveal";
 import ProductCard from "@/components/ProductCard";
 import ContactForm from "@/components/ContactForm";
+import { BranchCardCompact } from "@/components/BranchCard";
 import { siteConfig } from "@/lib/siteConfig";
 import { products, categories, categorySlugs } from "@/lib/products";
 import { industries } from "@/lib/clients";
+import { branches, bothBranchesMapEmbed } from "@/lib/locations";
 import { industryIcon } from "@/components/IndustryIcon";
 
 const whyUs = [
@@ -166,6 +168,39 @@ export default function HomePage() {
               );
             })}
           </div>
+        </div>
+      </section>
+
+      {/* Two Locations */}
+      <section className="py-20">
+        <div className="container-x">
+          <Reveal>
+            <p className="section-label">Now In Two Places</p>
+            <h2 className="mb-12 max-w-xl text-balance font-heading text-3xl font-bold text-ink sm:text-4xl">
+              Serving Lebanon from Two Locations
+            </h2>
+          </Reveal>
+
+          <div className="grid gap-6 sm:grid-cols-2">
+            {branches.map((b, i) => (
+              <Reveal key={b.id} delay={i * 0.1}>
+                <BranchCardCompact branch={b} />
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal delay={0.2}>
+            <div className="mt-6 h-80 overflow-hidden rounded-lg border border-line">
+              <iframe
+                src={bothBranchesMapEmbed}
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                loading="lazy"
+                title="Both Traboulsi Est. branch locations"
+              />
+            </div>
+          </Reveal>
         </div>
       </section>
 

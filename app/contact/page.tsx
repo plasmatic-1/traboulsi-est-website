@@ -1,78 +1,43 @@
 import type { Metadata } from "next";
-import { Phone, Mail, MapPin, Printer, Smartphone } from "lucide-react";
+import Reveal from "@/components/Reveal";
 import ContactForm from "@/components/ContactForm";
-import { siteConfig } from "@/lib/siteConfig";
+import { BranchCardFull } from "@/components/BranchCard";
+import { branches } from "@/lib/locations";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Get in touch with Traboulsi Est. for Trading & Industry — call, email, or send us a message for a product quote or consultation.",
+  description: "Get in touch with Traboulsi Est. — reach either of our two branches directly, or send a general inquiry.",
 };
 
 export default function ContactPage() {
   return (
     <section className="container-x py-16 sm:py-20">
       <p className="section-label">Get In Touch</p>
-      <h1 className="mb-10 max-w-2xl text-balance font-heading text-4xl font-bold text-ink">
+      <h1 className="mb-4 max-w-2xl text-balance font-heading text-4xl font-bold text-ink">
         Contact Us
       </h1>
+      <p className="mb-12 max-w-xl text-ink/60">
+        Choose whichever branch is more convenient for you, or send a general message below and
+        we&apos;ll route it to the right team.
+      </p>
 
-      <div className="grid gap-10 lg:grid-cols-2">
-        <div>
+      <div className="mb-16 grid gap-8 lg:grid-cols-2">
+        {branches.map((b, i) => (
+          <Reveal key={b.id} delay={i * 0.1}>
+            <BranchCardFull branch={b} />
+          </Reveal>
+        ))}
+      </div>
+
+      <Reveal delay={0.15}>
+        <div className="mx-auto max-w-2xl">
+          <p className="section-label">Or Send A Message</p>
+          <h2 className="mb-8 font-heading text-2xl font-bold text-ink">General Inquiry</h2>
           <div className="card p-7">
             <ContactForm />
           </div>
-
-          <div className="mt-8 grid gap-4 sm:grid-cols-2">
-            <div className="card flex items-center gap-3 p-5">
-              <Phone className="shrink-0 text-accent" size={20} />
-              <div>
-                <p className="font-heading text-sm font-semibold text-ink">Tel</p>
-                <a href={siteConfig.phoneHref} className="text-sm text-ink/60 hover:text-primary">{siteConfig.phone}</a>
-              </div>
-            </div>
-            <div className="card flex items-center gap-3 p-5">
-              <Smartphone className="shrink-0 text-accent" size={20} />
-              <div>
-                <p className="font-heading text-sm font-semibold text-ink">Mobile</p>
-                <a href={siteConfig.mobileHref} className="text-sm text-ink/60 hover:text-primary">{siteConfig.mobile}</a>
-              </div>
-            </div>
-            <div className="card flex items-center gap-3 p-5">
-              <Printer className="shrink-0 text-accent" size={20} />
-              <div>
-                <p className="font-heading text-sm font-semibold text-ink">Fax</p>
-                <p className="text-sm text-ink/60">{siteConfig.fax}</p>
-              </div>
-            </div>
-            <div className="card flex items-center gap-3 p-5">
-              <Mail className="shrink-0 text-accent" size={20} />
-              <div>
-                <p className="font-heading text-sm font-semibold text-ink">Email</p>
-                <a href={`mailto:${siteConfig.email}`} className="text-sm text-ink/60 hover:text-primary">{siteConfig.email}</a>
-              </div>
-            </div>
-          </div>
-
-          <div className="card mt-4 flex items-start gap-3 p-5">
-            <MapPin className="mt-0.5 shrink-0 text-accent" size={20} />
-            <div>
-              <p className="font-heading text-sm font-semibold text-ink">Address</p>
-              <a href={siteConfig.mapsLink} target="_blank" rel="noopener noreferrer" className="text-sm text-ink/60 hover:text-primary">{siteConfig.address}</a>
-            </div>
-          </div>
         </div>
-
-        <div className="h-80 overflow-hidden rounded-lg border border-line lg:h-full">
-          <iframe
-            src={siteConfig.mapsEmbed}
-            width="100%"
-            height="100%"
-            style={{ border: 0 }}
-            loading="lazy"
-            title="Traboulsi Est. location map"
-          />
-        </div>
-      </div>
+      </Reveal>
     </section>
   );
 }

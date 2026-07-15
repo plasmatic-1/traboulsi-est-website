@@ -8,13 +8,21 @@
   }
   body {
     @apply bg-white text-ink font-body antialiased;
+    -webkit-font-smoothing: antialiased;
   }
   h1, h2, h3, h4 {
-    @apply font-heading;
+    @apply font-heading tracking-tight;
+  }
+  p {
+    @apply leading-relaxed;
   }
   :focus-visible {
     outline: 2px solid #1E3A5F;
     outline-offset: 2px;
+    border-radius: 2px;
+  }
+  ::selection {
+    @apply bg-accent/20;
   }
 }
 
@@ -28,19 +36,19 @@
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-md bg-primary px-6 py-3 font-heading text-sm font-semibold text-white transition-colors duration-200 hover:bg-primary-dark;
+    @apply inline-flex items-center justify-center gap-2 rounded-md bg-primary px-6 py-3 font-heading text-sm font-semibold text-white transition-all duration-200 ease-out hover:bg-primary-dark hover:shadow-md active:scale-[0.98];
   }
 
   .btn-accent {
-    @apply inline-flex items-center justify-center gap-2 rounded-md bg-accent px-6 py-3 font-heading text-sm font-semibold text-white transition-colors duration-200 hover:bg-accent-dark;
+    @apply inline-flex items-center justify-center gap-2 rounded-md bg-accent px-6 py-3 font-heading text-sm font-semibold text-white transition-all duration-200 ease-out hover:bg-accent-dark hover:shadow-md active:scale-[0.98];
   }
 
   .btn-outline {
-    @apply inline-flex items-center justify-center gap-2 rounded-md border border-primary px-6 py-3 font-heading text-sm font-semibold text-primary transition-colors duration-200 hover:bg-primary hover:text-white;
+    @apply inline-flex items-center justify-center gap-2 rounded-md border border-primary px-6 py-3 font-heading text-sm font-semibold text-primary transition-all duration-200 ease-out hover:bg-primary hover:text-white active:scale-[0.98];
   }
 
   .card {
-    @apply rounded-lg border border-line bg-white shadow-card transition-all duration-300 hover:shadow-cardHover;
+    @apply rounded-xl border border-line bg-white shadow-card transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-cardHover;
   }
 
   .fade-up {
