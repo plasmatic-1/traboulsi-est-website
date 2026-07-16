@@ -34,24 +34,24 @@ export default function HomePage() {
           className="object-cover object-center"
         />
         <div className="absolute inset-0 bg-primary-dark/80" />
-        <div className="container-x relative py-20 text-white">
+        <div className="container-x relative py-28 text-white sm:py-36">
           <Reveal>
-            <p className="section-label !text-white/80">Traboulsi Est. for Trading &amp; Industry</p>
+            <p className="section-label mb-4 !text-white/80">Traboulsi Est. for Trading &amp; Industry</p>
           </Reveal>
           <Reveal delay={0.08}>
-            <h1 className="max-w-3xl text-balance font-heading text-4xl font-bold leading-tight sm:text-5xl">
+            <h1 className="max-w-2xl text-balance font-heading text-4xl font-bold leading-[1.15] sm:text-5xl sm:leading-[1.15]">
               Commercial Kitchen Equipment for Restaurants, Hotels, Hospitals &amp; Supermarkets
             </h1>
           </Reveal>
           <Reveal delay={0.16}>
-            <p className="mt-6 max-w-xl text-white/85">
+            <p className="mt-7 max-w-lg text-base leading-relaxed text-white/80">
               Since {siteConfig.founded}, Traboulsi Est. has supplied refrigeration, cooking and
               stainless steel equipment across Lebanon — trusted by restaurants, hospitals,
               bakeries and supermarkets for quality that lasts.
             </p>
           </Reveal>
           <Reveal delay={0.24}>
-            <div className="mt-9 flex flex-wrap gap-4">
+            <div className="mt-10 flex flex-wrap gap-4">
               <Link href="/products" className="btn-accent">
                 View Products <ArrowRight size={16} />
               </Link>

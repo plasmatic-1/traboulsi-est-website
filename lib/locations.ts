@@ -5,12 +5,19 @@ export type Branch = {
   phone: string;
   phoneHref: string;
   email: string;
-  hours: { day: string; time: string }[];
+  hours: { range: string; time: string }[];
   mapsEmbed: string;
   mapsLink: string;
   lat: number;
   lng: number;
 };
+
+// Confirmed real schedule (applies to both branches unless noted otherwise below).
+const standardHours: Branch["hours"] = [
+  { range: "Monday – Friday", time: "8:30 AM – 4:30 PM" },
+  { range: "Saturday", time: "8:30 AM – 2:30 PM" },
+  { range: "Sunday", time: "Closed" },
+];
 
 export const branches: Branch[] = [
   {
@@ -20,26 +27,20 @@ export const branches: Branch[] = [
     phone: "+961 7 530 986",
     phoneHref: "tel:+9617530986",
     email: "info@traboulsiest.com",
-    hours: [
-      { day: "Saturday – Thursday", time: "8:00 AM – 6:00 PM" },
-      { day: "Friday", time: "Closed" },
-    ],
+    hours: standardHours,
     mapsEmbed: "https://maps.google.com/maps?q=33.4338035,35.4443397&z=17&output=embed",
     mapsLink: "https://maps.app.goo.gl/ckmX7kDXxTYcbRuP8",
     lat: 33.4338035,
     lng: 35.4443397,
   },
   {
-    id: "second-branch",
-    name: "Second Branch",
-    address: "Address to be confirmed — see note below",
+    id: "khalde",
+    name: "Khalde Branch",
+    address: "Khalde, Lebanon — exact street address pending, see note below",
     phone: "+961 7 530 986",
     phoneHref: "tel:+9617530986",
     email: "info@traboulsiest.com",
-    hours: [
-      { day: "Saturday – Thursday", time: "8:00 AM – 6:00 PM" },
-      { day: "Friday", time: "Closed" },
-    ],
+    hours: standardHours,
     mapsEmbed: "https://maps.google.com/maps?q=33.7738747,35.4696475&z=17&output=embed",
     mapsLink: "https://maps.app.goo.gl/W4cPVBi37CS9vb8GA",
     lat: 33.7738747,
