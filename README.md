@@ -31,6 +31,7 @@ Push to GitHub and import into [Vercel](https://vercel.com) — zero config. `np
 3. **Google Maps embed**: currently a generic "Deir el Zahrani" search embed. Replace `mapsEmbed` in `lib/siteConfig.ts` with your exact "Embed a map" iframe `src` from Google Maps (Share → Embed a map) for a pinpoint location.
 4. **Contact form**: now wired to Formspree (form ID `mgojglkl`) via `@formspree/react` — submissions will arrive at whatever email is linked to that Formspree account. No further setup needed.
 5. **Domain**: update `metadataBase` in `app/layout.tsx` and the sitemap base URL in `app/sitemap.ts` once deployed.
+6. **Logo & capabilities banner**: now local files (`public/logo.png` and `public/capabilities-banner.png`) instead of pulled from the old traboulsiest.com URLs. If either changes again, replace the file in `public/` with the same filename, or update the path in `lib/siteConfig.ts`.
 
 ## Structure
 

@@ -8,13 +8,15 @@ export default function Footer() {
     <footer className="bg-primary text-white">
       <div className="container-x grid gap-10 py-14 sm:grid-cols-3">
         <div>
-          <Image
-            src={siteConfig.logo}
-            alt={siteConfig.fullName}
-            width={170}
-            height={52}
-            className="mb-4 h-11 w-auto object-contain brightness-0 invert"
-          />
+          <div className="mb-4 inline-flex rounded-lg bg-white p-2.5">
+            <Image
+              src={siteConfig.logo}
+              alt={siteConfig.fullName}
+              width={480}
+              height={480}
+              className="h-12 w-12 object-contain"
+            />
+          </div>
           <p className="max-w-xs text-sm text-white/70">
             Trusted Lebanese supplier of commercial kitchen, refrigeration and stainless steel
             equipment since {siteConfig.founded} — serving restaurants, hotels, hospitals,
@@ -23,9 +25,11 @@ export default function Footer() {
           <a
             href={siteConfig.facebook}
             target="_blank"
-            className="mt-4 inline-flex items-center gap-2 text-sm text-white/80 hover:text-white"
+            rel="noopener noreferrer"
+            className="group mt-5 inline-flex items-center gap-2.5 rounded-md border border-white/15 px-4 py-2.5 text-sm text-white/80 transition-all duration-200 hover:border-white/30 hover:bg-white/10 hover:text-white"
           >
-            <Facebook size={16} /> Follow us on Facebook
+            <Facebook size={16} className="transition-transform duration-200 group-hover:scale-110" />
+            Follow us on Facebook
           </a>
         </div>
 

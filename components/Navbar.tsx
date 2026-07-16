@@ -41,9 +41,9 @@ export default function Navbar() {
           <Image
             src={siteConfig.logo}
             alt={siteConfig.fullName}
-            width={170}
-            height={52}
-            className="h-11 w-auto object-contain"
+            width={480}
+            height={480}
+            className="h-14 w-14 object-contain sm:h-16 sm:w-16"
             priority
           />
         </Link>

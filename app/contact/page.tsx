@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import { Facebook } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import ContactForm from "@/components/ContactForm";
 import { BranchCardFull } from "@/components/BranchCard";
 import { branches } from "@/lib/locations";
+import { siteConfig } from "@/lib/siteConfig";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -16,10 +18,20 @@ export default function ContactPage() {
       <h1 className="mb-4 max-w-2xl text-balance font-heading text-4xl font-bold text-ink">
         Contact Us
       </h1>
-      <p className="mb-12 max-w-xl text-ink/60">
+      <p className="mb-6 max-w-xl text-ink/60">
         Choose whichever branch is more convenient for you, or send a general message below and
         we&apos;ll route it to the right team.
       </p>
+
+      <a
+        href={siteConfig.facebook}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group mb-12 inline-flex items-center gap-2.5 rounded-md border border-line px-4 py-2.5 text-sm font-medium text-ink/70 transition-all duration-200 hover:border-primary hover:text-primary"
+      >
+        <Facebook size={16} className="transition-transform duration-200 group-hover:scale-110" />
+        Follow us on Facebook
+      </a>
 
       <div className="mb-16 grid gap-8 lg:grid-cols-2">
         {branches.map((b, i) => (

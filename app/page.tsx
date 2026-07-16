@@ -70,6 +70,24 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Capabilities banner */}
+      <section className="bg-surface py-12 sm:py-16">
+        <div className="container-x">
+          <Reveal>
+            <div className="overflow-hidden rounded-xl border border-line bg-white">
+              <Image
+                src={siteConfig.capabilitiesBanner}
+                alt="Traboulsi Est. — Industrial Kitchen & Stainless Steel Solutions: Design, Manufacturing, Installation, Maintenance"
+                width={2000}
+                height={760}
+                className="h-auto w-full object-contain"
+                sizes="(max-width: 1280px) 100vw, 1280px"
+              />
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       {/* Why Choose Us */}
       <section className="bg-surface py-20">
         <div className="container-x">
