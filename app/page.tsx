@@ -7,7 +7,7 @@ import ContactForm from "@/components/ContactForm";
 import { BranchCardCompact } from "@/components/BranchCard";
 import { siteConfig } from "@/lib/siteConfig";
 import { products, categories, categorySlugs } from "@/lib/products";
-import { industries } from "@/lib/clients";
+import { industries, clientGroups } from "@/lib/clients";
 import { branches, bothBranchesMapEmbed } from "@/lib/locations";
 import { industryIcon } from "@/components/IndustryIcon";
 
@@ -20,7 +20,14 @@ const whyUs = [
 ];
 
 export default function HomePage() {
-  const featured = categories.map((cat) => products.find((p) => p.category === cat)).filter(Boolean);
+  const featured = categories.flatMap((cat) => products.filter((p) => p.category === cat).slice(0, 2));
+  const trustedClients = clientGroups.flatMap((g) => g.clients).slice(0, 18);
+  const trustStats = [
+    { value: `${siteConfig.founded}`, label: "Established" },
+    { value: "40+", label: "Years of Experience" },
+    { value: "1000+", label: "Products Delivered" },
+    { value: "6", label: "Sectors Served" },
+  ];
 
   return (
     <>
@@ -139,12 +146,55 @@ export default function HomePage() {
             </h2>
           </Reveal>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {featured.map((p, i) => p && (
+            {featured.map((p, i) => (
               <Reveal key={p.id} delay={i * 0.06}>
                 <ProductCard product={p} />
               </Reveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Trust — real numbers and real client names, no fabricated reviews */}
+      <section className="bg-primary-dark py-20">
+        <div className="container-x">
+          <Reveal>
+            <p className="section-label !text-accent">Trusted Across Lebanon</p>
+            <h2 className="mb-12 max-w-xl text-balance font-heading text-3xl font-bold text-white sm:text-4xl">
+              Equipping Lebanese businesses since {siteConfig.founded}
+            </h2>
+          </Reveal>
+
+          <div className="mb-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+            {trustStats.map((s, i) => (
+              <Reveal key={s.label} delay={i * 0.06}>
+                <p className="font-heading text-4xl font-bold text-accent sm:text-5xl">{s.value}</p>
+                <p className="mt-2 text-sm text-white/60">{s.label}</p>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal delay={0.15}>
+            <p className="mb-5 font-heading text-xs font-semibold uppercase tracking-[0.2em] text-white/50">
+              Among the businesses that trust us
+            </p>
+            <div className="flex flex-wrap gap-2.5">
+              {trustedClients.map((c) => (
+                <span
+                  key={c}
+                  className="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm text-white/80"
+                >
+                  {c}
+                </span>
+              ))}
+            </div>
+            <Link
+              href="/clients"
+              className="mt-6 inline-flex items-center gap-1.5 font-heading text-sm font-semibold text-accent hover:text-accent-dark"
+            >
+              See all our clients <ArrowRight size={15} />
+            </Link>
+          </Reveal>
         </div>
       </section>
 
