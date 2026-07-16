@@ -281,7 +281,7 @@ export default function HomePage() {
                 </div>
                 <div className="flex items-center gap-3 text-sm text-ink/70">
                   <Printer size={17} className="shrink-0 text-accent" />
-                  <span><span className="text-ink/50">Fax:</span> {siteConfig.fax}</span>
+                  <span><span className="text-ink/50">Fax:</span> <a href={siteConfig.faxHref} className="hover:text-primary">{siteConfig.fax}</a></span>
                 </div>
                 <div className="flex items-center gap-3 text-sm text-ink/70">
                   <Mail size={17} className="shrink-0 text-accent" />

@@ -7,6 +7,7 @@ export const siteConfig = {
   mobile: "+961 3 829 906",
   mobileHref: "tel:+9613829906",
   fax: "+961 7 530 986",
+  faxHref: "tel:+9617530986",
   email: "info@traboulsiest.com",
   address: "Deir el Zahrani, Nabatieh, Lebanon",
   mapsLink: "https://maps.app.goo.gl/ckmX7kDXxTYcbRuP8",
