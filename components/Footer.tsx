@@ -8,15 +8,13 @@ export default function Footer() {
     <footer className="bg-primary text-white">
       <div className="container-x grid gap-10 py-14 sm:grid-cols-3">
         <div>
-          <div className="mb-4 inline-flex rounded-lg bg-white p-2.5">
-            <Image
-              src={siteConfig.logo}
-              alt={siteConfig.fullName}
-              width={480}
-              height={480}
-              className="h-12 w-12 object-contain"
-            />
-          </div>
+          <Image
+            src={siteConfig.logo}
+            alt={siteConfig.fullName}
+            width={1255}
+            height={1255}
+            className="mb-4 h-14 w-14 object-contain"
+          />
           <p className="max-w-xs text-sm text-white/70">
             Trusted Lebanese supplier of commercial kitchen, refrigeration and stainless steel
             equipment since {siteConfig.founded} — serving restaurants, hotels, hospitals,
