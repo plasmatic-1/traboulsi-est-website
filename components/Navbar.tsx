@@ -43,7 +43,7 @@ export default function Navbar() {
             alt={siteConfig.fullName}
             width={1255}
             height={1255}
-            className="h-14 w-14 object-contain sm:h-16 sm:w-16"
+            className="h-16 w-16 object-contain sm:h-[72px] sm:w-[72px]"
             priority
           />
         </Link>

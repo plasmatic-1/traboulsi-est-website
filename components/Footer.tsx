@@ -13,7 +13,7 @@ export default function Footer() {
             alt={siteConfig.fullName}
             width={1255}
             height={1255}
-            className="mb-4 h-14 w-14 object-contain"
+            className="mb-4 h-20 w-20 object-contain sm:h-24 sm:w-24"
           />
           <p className="max-w-xs text-sm text-white/70">
             Trusted Lebanese supplier of commercial kitchen, refrigeration and stainless steel
