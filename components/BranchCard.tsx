@@ -24,8 +24,8 @@ function HoursList({ hours, dense = false }: { hours: Branch["hours"]; dense?: b
 export function BranchCardCompact({ branch }: { branch: Branch }) {
   return (
     <div className="card group flex flex-col p-8">
-      <span className="mb-6 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 transition-colors duration-300 group-hover:bg-accent/10">
-        <Building2 className="text-primary transition-colors duration-300 group-hover:text-accent" size={22} />
+      <span className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 transition-colors duration-300 ease-premium group-hover:bg-accent/10">
+        <Building2 className="text-primary transition-colors duration-300 ease-premium group-hover:text-accent" size={22} />
       </span>
       <h3 className="mb-4 font-heading text-lg font-semibold text-ink">{branch.name}</h3>
 
@@ -72,7 +72,7 @@ export function BranchCardFull({ branch }: { branch: Branch }) {
 
       <div className="p-8">
         <div className="mb-6 flex items-center gap-3">
-          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10">
             <Building2 className="text-primary" size={20} />
           </span>
           <h3 className="font-heading text-lg font-semibold text-ink">{branch.name}</h3>

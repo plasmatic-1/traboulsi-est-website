@@ -6,16 +6,18 @@ import { Send, CheckCircle2, Loader2 } from "lucide-react";
 const FORM_ID = "mgojglkl";
 
 const fieldClass =
-  "w-full rounded-md border border-line bg-surface px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-primary focus:bg-white";
-const labelClass = "mb-2 block font-heading text-xs font-semibold uppercase tracking-[0.12em] text-ink/50";
+  "w-full rounded-lg border border-line bg-white px-4 py-3 text-sm text-ink outline-none transition-all duration-200 ease-premium focus:border-primary focus:ring-4 focus:ring-primary/10";
+const labelClass = "mb-2 block font-heading text-xs font-semibold uppercase tracking-[0.12em] text-ink/45";
 
 export default function ContactForm() {
   const [state, handleSubmit] = useForm(FORM_ID);
 
   if (state.succeeded) {
     return (
-      <div className="card flex flex-col items-center justify-center gap-3 p-10 text-center">
-        <CheckCircle2 className="text-primary" size={40} />
+      <div className="flex flex-col items-center justify-center gap-3 p-10 text-center">
+        <span className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
+          <CheckCircle2 className="text-primary" size={32} />
+        </span>
         <p className="font-heading text-lg font-semibold text-ink">Message sent</p>
         <p className="text-sm text-ink/60">Thank you for reaching out. Our team will get back to you shortly.</p>
       </div>
@@ -65,7 +67,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={state.submitting}
-        className="btn-accent w-full !py-3.5 text-base disabled:opacity-60"
+        className="btn-accent group w-full !py-3.5 text-base disabled:pointer-events-none disabled:opacity-60"
       >
         {state.submitting ? (
           <>
@@ -73,7 +75,8 @@ export default function ContactForm() {
           </>
         ) : (
           <>
-            Send Message <Send size={16} />
+            Send Message
+            <Send size={16} className="transition-transform duration-300 ease-premium group-hover:translate-x-0.5" />
           </>
         )}
       </button>

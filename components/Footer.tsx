@@ -5,17 +5,18 @@ import { siteConfig } from "@/lib/siteConfig";
 
 export default function Footer() {
   return (
-    <footer className="bg-primary text-white">
-      <div className="container-x grid gap-10 py-14 sm:grid-cols-3">
+    <footer className="relative bg-primary-deep text-white">
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent" />
+      <div className="container-x grid gap-12 py-16 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr]">
         <div>
           <Image
             src={siteConfig.logo}
             alt={siteConfig.fullName}
             width={1255}
             height={1255}
-            className="mb-4 h-20 w-20 object-contain sm:h-24 sm:w-24"
+            className="mb-5 h-16 w-16 object-contain sm:h-20 sm:w-20"
           />
-          <p className="max-w-xs text-sm text-white/70">
+          <p className="max-w-xs text-sm leading-relaxed text-white/60">
             Trusted Lebanese supplier of commercial kitchen, refrigeration and stainless steel
             equipment since {siteConfig.founded} — serving restaurants, hotels, hospitals,
             bakeries and supermarkets across Lebanon.
@@ -24,49 +25,48 @@ export default function Footer() {
             href={siteConfig.facebook}
             target="_blank"
             rel="noopener noreferrer"
-            className="group mt-5 inline-flex items-center gap-2.5 rounded-md border border-white/15 px-4 py-2.5 text-sm text-white/80 transition-all duration-200 hover:border-white/30 hover:bg-white/10 hover:text-white"
+            aria-label="Follow Traboulsi Est. on Facebook"
+            className="group mt-6 inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white/70 transition-all duration-300 ease-premium hover:-translate-y-0.5 hover:border-accent/50 hover:bg-accent/10 hover:text-white"
           >
-            <Facebook size={16} className="transition-transform duration-200 group-hover:scale-110" />
-            Follow us on Facebook
+            <Facebook size={16} />
           </a>
         </div>
 
         <div>
-          <p className="mb-3 font-heading text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
+          <p className="mb-4 font-heading text-xs font-semibold uppercase tracking-[0.2em] text-white/40">
             Quick Links
           </p>
-          <div className="flex flex-col gap-2 text-sm text-white/80">
-            <Link href="/products" className="hover:text-white">Products</Link>
-            <Link href="/industries" className="hover:text-white">Industries We Serve</Link>
-            <Link href="/locations" className="hover:text-white">Locations</Link>
-            <Link href="/about" className="hover:text-white">About Us</Link>
-            <Link href="/clients" className="hover:text-white">Our Clients</Link>
-            <Link href="/#contact" className="hover:text-white">Contact</Link>
+          <div className="flex flex-col gap-3 text-sm text-white/65">
+            <Link href="/products" className="w-fit transition-colors hover:text-white">Products</Link>
+            <Link href="/industries" className="w-fit transition-colors hover:text-white">Industries We Serve</Link>
+            <Link href="/locations" className="w-fit transition-colors hover:text-white">Locations</Link>
+            <Link href="/about" className="w-fit transition-colors hover:text-white">About Us</Link>
+            <Link href="/clients" className="w-fit transition-colors hover:text-white">Our Clients</Link>
+            <Link href="/#contact" className="w-fit transition-colors hover:text-white">Contact</Link>
           </div>
         </div>
 
         <div>
-          <p className="mb-3 font-heading text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
+          <p className="mb-4 font-heading text-xs font-semibold uppercase tracking-[0.2em] text-white/40">
             Contact
           </p>
-          <p className="flex items-start gap-2 text-sm text-white/80">
-            <Phone size={16} className="mt-0.5 shrink-0" />
-            <span>
-              <a href={siteConfig.phoneHref} className="hover:text-white">{siteConfig.phone}</a>
-              {" / "}
-              <a href={siteConfig.mobileHref} className="hover:text-white">{siteConfig.mobile}</a>
-            </span>
-          </p>
-          <p className="mt-2 flex items-start gap-2 text-sm text-white/80">
-            <Mail size={16} className="mt-0.5 shrink-0" />
-            <a href={`mailto:${siteConfig.email}`} className="hover:text-white">{siteConfig.email}</a>
-          </p>
-          <a href={siteConfig.mapsLink} target="_blank" rel="noopener noreferrer" className="mt-2 flex items-start gap-2 text-sm text-white/80 hover:text-white">
-            <MapPin size={16} className="mt-0.5 shrink-0" /> {siteConfig.address}
-          </a>
+          <div className="flex flex-col gap-3 text-sm text-white/65">
+            <a href={siteConfig.phoneHref} className="flex items-start gap-2.5 transition-colors hover:text-white">
+              <Phone size={15} className="mt-0.5 shrink-0 text-accent" /> {siteConfig.phone}
+            </a>
+            <a href={siteConfig.mobileHref} className="flex items-start gap-2.5 transition-colors hover:text-white">
+              <Phone size={15} className="mt-0.5 shrink-0 text-accent" /> {siteConfig.mobile}
+            </a>
+            <a href={`mailto:${siteConfig.email}`} className="flex items-start gap-2.5 transition-colors hover:text-white">
+              <Mail size={15} className="mt-0.5 shrink-0 text-accent" /> {siteConfig.email}
+            </a>
+            <a href={siteConfig.mapsLink} target="_blank" rel="noopener noreferrer" className="flex items-start gap-2.5 transition-colors hover:text-white">
+              <MapPin size={15} className="mt-0.5 shrink-0 text-accent" /> {siteConfig.address}
+            </a>
+          </div>
         </div>
       </div>
-      <div className="border-t border-white/10 py-5 text-center text-xs text-white/60">
+      <div className="border-t border-white/10 py-6 text-center text-xs text-white/40">
         © {new Date().getFullYear()} {siteConfig.fullName}. All Rights Reserved.
       </div>
     </footer>

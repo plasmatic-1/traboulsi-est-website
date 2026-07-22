@@ -9,11 +9,15 @@ export const metadata: Metadata = {
 
 export default function ProductsPage() {
   return (
-    <section className="container-x py-16 sm:py-20">
+    <section className="container-x py-20 sm:py-28">
       <p className="section-label">Our Range</p>
-      <h1 className="mb-10 max-w-2xl text-balance font-heading text-4xl font-bold text-ink">
+      <h1 className="max-w-2xl text-balance font-heading text-5xl font-bold tracking-tightest2 text-ink">
         Products
       </h1>
+      <p className="mb-12 mt-4 max-w-xl text-ink/55">
+        Refrigeration, cooking and stainless steel equipment built for the demands of restaurants,
+        hotels, hospitals, bakeries and supermarkets.
+      </p>
       <ProductsClient />
     </section>
   );

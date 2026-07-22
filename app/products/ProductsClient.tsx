@@ -14,15 +14,15 @@ export default function ProductsClient({ initialCategory }: { initialCategory?: 
 
   return (
     <div>
-      <div className="mb-10 flex flex-wrap gap-2">
+      <div className="mb-12 flex flex-wrap gap-2.5">
         {["All", ...categories].map((c) => (
           <button
             key={c}
             onClick={() => setActive(c)}
-            className={`rounded-md border px-4 py-2 font-heading text-sm font-medium transition-colors ${
+            className={`rounded-full border px-5 py-2.5 font-heading text-sm font-medium transition-all duration-300 ease-premium ${
               active === c
-                ? "border-primary bg-primary text-white"
-                : "border-line text-ink/70 hover:border-primary hover:text-primary"
+                ? "border-primary bg-primary text-white shadow-cardHover"
+                : "border-line text-ink/65 hover:border-primary/40 hover:text-primary"
             }`}
           >
             {c}

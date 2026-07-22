@@ -32,23 +32,31 @@
   }
 
   .section-label {
-    @apply mb-3 inline-block font-heading text-xs font-semibold uppercase tracking-[0.2em] text-accent;
+    @apply mb-4 inline-flex items-center gap-2 font-heading text-xs font-semibold uppercase tracking-[0.2em] text-accent;
+  }
+  .section-label::before {
+    content: "";
+    @apply h-px w-6 bg-accent/60;
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-md bg-primary px-6 py-3 font-heading text-sm font-semibold text-white transition-all duration-200 ease-out hover:bg-primary-dark hover:shadow-md active:scale-[0.98];
+    @apply relative inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3 font-heading text-sm font-semibold text-white shadow-xs transition-all duration-300 ease-premium hover:-translate-y-px hover:bg-primary-dark hover:shadow-cardHover active:translate-y-0 active:scale-[0.98];
   }
 
   .btn-accent {
-    @apply inline-flex items-center justify-center gap-2 rounded-md bg-accent px-6 py-3 font-heading text-sm font-semibold text-white transition-all duration-200 ease-out hover:bg-accent-dark hover:shadow-md active:scale-[0.98];
+    @apply relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-lg bg-accent px-6 py-3 font-heading text-sm font-semibold text-white shadow-glow transition-all duration-300 ease-premium hover:-translate-y-px hover:bg-accent-dark hover:shadow-glow active:translate-y-0 active:scale-[0.98];
   }
 
   .btn-outline {
-    @apply inline-flex items-center justify-center gap-2 rounded-md border border-primary px-6 py-3 font-heading text-sm font-semibold text-primary transition-all duration-200 ease-out hover:bg-primary hover:text-white active:scale-[0.98];
+    @apply inline-flex items-center justify-center gap-2 rounded-lg border border-primary/25 px-6 py-3 font-heading text-sm font-semibold text-primary transition-all duration-300 ease-premium hover:-translate-y-px hover:border-primary hover:bg-primary hover:text-white active:translate-y-0 active:scale-[0.98];
   }
 
   .card {
-    @apply rounded-xl border border-line bg-white shadow-card transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-cardHover;
+    @apply rounded-2xl border border-line bg-white shadow-card transition-all duration-500 ease-premium hover:-translate-y-1 hover:border-primary/15 hover:shadow-cardHover;
+  }
+
+  .stat-chip {
+    @apply inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm text-white/85 backdrop-blur-sm;
   }
 
   .fade-up {

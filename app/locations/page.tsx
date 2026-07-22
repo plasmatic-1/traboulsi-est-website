@@ -10,12 +10,12 @@ export const metadata: Metadata = {
 
 export default function LocationsPage() {
   return (
-    <section className="container-x py-16 sm:py-20">
+    <section className="container-x py-20 sm:py-28">
       <p className="section-label">Find Us</p>
-      <h1 className="mb-4 max-w-2xl text-balance font-heading text-4xl font-bold text-ink">
+      <h1 className="mb-4 max-w-2xl text-balance font-heading text-5xl font-bold tracking-tightest2 text-ink">
         Our Locations
       </h1>
-      <p className="mb-12 max-w-xl text-ink/60">
+      <p className="mb-14 max-w-xl leading-relaxed text-ink/55">
         Traboulsi Est. now serves Lebanon from two branches. Visit whichever is closer, or reach
         out to either one directly.
       </p>
@@ -29,7 +29,7 @@ export default function LocationsPage() {
       </div>
 
       <Reveal delay={0.2}>
-        <div className="mt-10 h-96 overflow-hidden rounded-lg border border-line">
+        <div className="mt-10 h-96 overflow-hidden rounded-2xl border border-line">
           <iframe
             src={bothBranchesMapEmbed}
             width="100%"

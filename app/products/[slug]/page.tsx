@@ -26,9 +26,9 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
   if (!category) notFound();
 
   return (
-    <section className="container-x py-16 sm:py-20">
+    <section className="container-x py-20 sm:py-28">
       <p className="section-label">Our Range</p>
-      <h1 className="mb-10 max-w-2xl text-balance font-heading text-4xl font-bold text-ink">
+      <h1 className="mb-12 max-w-2xl text-balance font-heading text-5xl font-bold tracking-tightest2 text-ink">
         {category}
       </h1>
       <ProductsClient initialCategory={category} />
