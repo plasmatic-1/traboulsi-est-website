@@ -21,15 +21,6 @@ export default function Footer() {
             equipment since {siteConfig.founded} — serving restaurants, hotels, hospitals,
             bakeries and supermarkets across Lebanon.
           </p>
-          <a
-            href={siteConfig.facebook}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Follow Traboulsi Est. on Facebook"
-            className="group mt-6 inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white/70 transition-all duration-300 ease-premium hover:-translate-y-0.5 hover:border-accent/50 hover:bg-accent/10 hover:text-white"
-          >
-            <Facebook size={16} />
-          </a>
         </div>
 
         <div>
@@ -62,6 +53,14 @@ export default function Footer() {
             </a>
             <a href={siteConfig.mapsLink} target="_blank" rel="noopener noreferrer" className="flex items-start gap-2.5 transition-colors hover:text-white">
               <MapPin size={15} className="mt-0.5 shrink-0 text-accent" /> {siteConfig.address}
+            </a>
+            <a
+              href={siteConfig.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-start gap-2.5 transition-colors hover:text-white"
+            >
+              <Facebook size={15} className="mt-0.5 shrink-0 text-accent" /> Follow us on Facebook
             </a>
           </div>
         </div>

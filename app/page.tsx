@@ -8,7 +8,7 @@ import { BranchCardCompact } from "@/components/BranchCard";
 import { siteConfig } from "@/lib/siteConfig";
 import { products, categories, categorySlugs } from "@/lib/products";
 import { industries, clientGroups } from "@/lib/clients";
-import { branches, bothBranchesMapEmbed } from "@/lib/locations";
+import { branches } from "@/lib/locations";
 import { industryIcon } from "@/components/IndustryIcon";
 
 const whyUs = [
@@ -261,19 +261,6 @@ export default function HomePage() {
               </Reveal>
             ))}
           </div>
-
-          <Reveal delay={0.2}>
-            <div className="mt-6 h-80 overflow-hidden rounded-2xl border border-line">
-              <iframe
-                src={bothBranchesMapEmbed}
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                loading="lazy"
-                title="Both Traboulsi Est. branch locations"
-              />
-            </div>
-          </Reveal>
         </div>
       </section>
 
@@ -287,54 +274,39 @@ export default function HomePage() {
             </h2>
           </Reveal>
 
-          <div className="grid gap-10 lg:grid-cols-2">
-            <Reveal delay={0.1}>
-              <div className="card p-7">
-                <ContactForm />
-              </div>
+          <Reveal delay={0.1} className="mx-auto max-w-2xl">
+            <div className="card p-7">
+              <ContactForm />
+            </div>
 
-              <div className="mt-6 grid gap-4 sm:grid-cols-2">
-                <div className="flex items-center gap-3 text-sm text-ink/70">
-                  <Phone size={17} className="shrink-0 text-accent" />
-                  <span><span className="text-ink/50">Tel:</span> <a href={siteConfig.phoneHref} className="hover:text-primary">{siteConfig.phone}</a></span>
-                </div>
-                <div className="flex items-center gap-3 text-sm text-ink/70">
-                  <Smartphone size={17} className="shrink-0 text-accent" />
-                  <span><span className="text-ink/50">Mobile:</span> <a href={siteConfig.mobileHref} className="hover:text-primary">{siteConfig.mobile}</a></span>
-                </div>
-                <div className="flex items-center gap-3 text-sm text-ink/70">
-                  <Printer size={17} className="shrink-0 text-accent" />
-                  <span><span className="text-ink/50">Fax:</span> <a href={siteConfig.faxHref} className="hover:text-primary">{siteConfig.fax}</a></span>
-                </div>
-                <div className="flex items-center gap-3 text-sm text-ink/70">
-                  <Mail size={17} className="shrink-0 text-accent" />
-                  <a href={`mailto:${siteConfig.email}`} className="hover:text-primary">{siteConfig.email}</a>
-                </div>
-                <a
-                  href={siteConfig.mapsLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-start gap-3 text-sm text-ink/70 hover:text-primary sm:col-span-2"
-                >
-                  <MapPin size={17} className="mt-0.5 shrink-0 text-accent" />
-                  {siteConfig.address}
-                </a>
+            <div className="mt-6 grid gap-4 sm:grid-cols-2">
+              <div className="flex items-center gap-3 text-sm text-ink/70">
+                <Phone size={17} className="shrink-0 text-accent" />
+                <span><span className="text-ink/50">Tel:</span> <a href={siteConfig.phoneHref} className="hover:text-primary">{siteConfig.phone}</a></span>
               </div>
-            </Reveal>
-
-            <Reveal delay={0.18}>
-              <div className="h-80 overflow-hidden rounded-2xl border border-line lg:h-full">
-                <iframe
-                  src={siteConfig.mapsEmbed}
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  loading="lazy"
-                  title="Traboulsi Est. location map"
-                />
+              <div className="flex items-center gap-3 text-sm text-ink/70">
+                <Smartphone size={17} className="shrink-0 text-accent" />
+                <span><span className="text-ink/50">Mobile:</span> <a href={siteConfig.mobileHref} className="hover:text-primary">{siteConfig.mobile}</a></span>
               </div>
-            </Reveal>
-          </div>
+              <div className="flex items-center gap-3 text-sm text-ink/70">
+                <Printer size={17} className="shrink-0 text-accent" />
+                <span><span className="text-ink/50">Fax:</span> <a href={siteConfig.faxHref} className="hover:text-primary">{siteConfig.fax}</a></span>
+              </div>
+              <div className="flex items-center gap-3 text-sm text-ink/70">
+                <Mail size={17} className="shrink-0 text-accent" />
+                <a href={`mailto:${siteConfig.email}`} className="hover:text-primary">{siteConfig.email}</a>
+              </div>
+              <a
+                href={siteConfig.mapsLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-3 text-sm text-ink/70 hover:text-primary sm:col-span-2"
+              >
+                <MapPin size={17} className="mt-0.5 shrink-0 text-accent" />
+                {siteConfig.address}
+              </a>
+            </div>
+          </Reveal>
         </div>
       </section>
     </>

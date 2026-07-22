@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Reveal from "@/components/Reveal";
 import { BranchCardFull } from "@/components/BranchCard";
-import { branches, bothBranchesMapEmbed } from "@/lib/locations";
+import { branches } from "@/lib/locations";
 
 export const metadata: Metadata = {
   title: "Locations",
@@ -27,19 +27,6 @@ export default function LocationsPage() {
           </Reveal>
         ))}
       </div>
-
-      <Reveal delay={0.2}>
-        <div className="mt-10 h-96 overflow-hidden rounded-2xl border border-line">
-          <iframe
-            src={bothBranchesMapEmbed}
-            width="100%"
-            height="100%"
-            style={{ border: 0 }}
-            loading="lazy"
-            title="Both Traboulsi Est. branch locations"
-          />
-        </div>
-      </Reveal>
     </section>
   );
 }
