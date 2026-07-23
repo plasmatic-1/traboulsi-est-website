@@ -19,7 +19,7 @@ Push to GitHub and import into [Vercel](https://vercel.com) — zero config. `np
 
 - **Same company name, same original logo** — pulled directly from traboulsiest.com (`lib/siteConfig.ts` → `logo`).
 - **All 145 products carried over** — nothing was removed. They were parsed directly from the current site's product gallery (name + image), auto-sorted into three categories (Refrigeration, Heating, Stainless/Processing/Others) based on keyword matching. See `lib/products.ts`.
-- **Original product photos** — every product image URL points at the existing `traboulsiest.com/uploads/products/...` file, so nothing needed re-hosting.
+- **Original product photos, now self-hosted** — all 145 product photos plus the hero and About Us photos were downloaded from the original `traboulsiest.com` server and now live locally in `public/images/` (`products/`, `hero/`, `about/`), so the site no longer depends on the old server staying online. Twelve product entries had truncated image filenames in the original data (e.g. `images_(1` with no extension) — these were verified against the live server and corrected before downloading.
 - **Real client list** — the exact client names and groupings from the current site's "Our Clients" section, now shown as clean cards with an icon per industry (`lib/clients.ts`, `/clients` page).
 - **Real contact details** — phone, mobile, fax, email and address pulled from the current site.
 
@@ -30,7 +30,7 @@ Push to GitHub and import into [Vercel](https://vercel.com) — zero config. `np
 2. **Product names**: names were also taken from the current site's image captions (e.g. "showcase fridge", "gas griddle"). If you'd like more specific/marketing-friendly names, edit `name` in `lib/products.ts`.
 3. **Google Maps embed**: currently a generic "Deir el Zahrani" search embed. Replace `mapsEmbed` in `lib/siteConfig.ts` with your exact "Embed a map" iframe `src` from Google Maps (Share → Embed a map) for a pinpoint location.
 4. **Contact form**: now wired to Formspree (form ID `mgojglkl`) via `@formspree/react` — submissions will arrive at whatever email is linked to that Formspree account. No further setup needed.
-5. **Domain**: update `metadataBase` in `app/layout.tsx` and the sitemap base URL in `app/sitemap.ts` once deployed.
+5. **Domain**: the old `traboulsiest.com` domain's DNS/hosting access could not be located, so `metadataBase` (`app/layout.tsx`), the sitemap base URL (`app/sitemap.ts`), and the robots.txt sitemap reference (`app/robots.ts`) now point at `traboulsiest.net`, pending registration and connecting it to this Vercel project. If the old domain is ever recovered instead, revert these three files to `traboulsiest.com`. Note: `info@traboulsiest.com` is still shown as the contact email everywhere on the site — confirm someone can actually check that inbox, since access to it is uncertain along with the old domain's hosting.
 6. **Logo & capabilities banner**: now local files (`public/logo.png` and `public/capabilities-banner.png`) instead of pulled from the old traboulsiest.com URLs. If either changes again, replace the file in `public/` with the same filename, or update the path in `lib/siteConfig.ts`.
 
 ## Structure

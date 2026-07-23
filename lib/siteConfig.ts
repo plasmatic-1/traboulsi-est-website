@@ -16,10 +16,10 @@ export const siteConfig = {
   logo: "/logo.png",
   capabilitiesBanner: "/capabilities-banner.png",
   heroImages: [
-    "https://traboulsiest.com/uploads/banner/1950x960/trab.jpg",
-    "https://traboulsiest.com/uploads/banner/1950x960/trab2.jpg",
-    "https://traboulsiest.com/uploads/banner/1950x960/trab3.jpg",
+    "/images/hero/trab.jpg",
+    "/images/hero/trab2.jpg",
+    "/images/hero/trab3.jpg",
   ],
-  aboutImage: "https://traboulsiest.com/uploads/about_us/530x400/tra1.jpg",
+  aboutImage: "/images/about/tra1.jpg",
   founded: 1982,
 };

@@ -21,7 +21,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://traboulsiest.com"),
+  metadataBase: new URL("https://traboulsiest.net"),
   title: {
     default: `${siteConfig.fullName} | Commercial Kitchen Equipment Lebanon`,
     template: `%s | ${siteConfig.name}`,
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: `${siteConfig.fullName} | Commercial Kitchen Equipment Lebanon`,
     description: siteConfig.tagline,
-    url: "https://traboulsiest.com",
+    url: "https://traboulsiest.net",
     siteName: siteConfig.fullName,
     locale: "en",
     type: "website",

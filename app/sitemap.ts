@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { categorySlugs } from "@/lib/products";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://traboulsiest.com";
+  const base = "https://traboulsiest.net";
   const routes = ["", "/products", "/industries", "/locations", "/about", "/clients", "/contact"];
   const categoryRoutes = Object.values(categorySlugs).map((slug) => `/products/${slug}`);
   return [...routes, ...categoryRoutes].map((r) => ({
