@@ -36,7 +36,7 @@ export const branches: Branch[] = [
   {
     id: "khalde",
     name: "Khalde Branch",
-    address: "Khalde, Lebanon — exact street address pending, see note below",
+    address: "Khalde, Lebanon",
     phone: "+961 7 530 986",
     phoneHref: "tel:+9617530986",
     email: "info@traboulsiest.com",
