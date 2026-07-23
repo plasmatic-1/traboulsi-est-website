@@ -39,8 +39,8 @@ export default function ContactForm() {
           <ValidationError prefix="Email" field="email" errors={state.errors} className="mt-1 text-xs text-accent" />
         </div>
         <div>
-          <label htmlFor="phone" className={labelClass}>Phone</label>
-          <input id="phone" name="phone" required type="tel" placeholder="+961 ..." className={fieldClass} />
+          <label htmlFor="phone" className={labelClass}>Phone <span className="normal-case text-ink/35">(optional)</span></label>
+          <input id="phone" name="phone" type="tel" placeholder="+961 ..." className={fieldClass} />
           <ValidationError prefix="Phone" field="phone" errors={state.errors} className="mt-1 text-xs text-accent" />
         </div>
       </div>
