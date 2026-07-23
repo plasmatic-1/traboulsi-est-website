@@ -3,7 +3,7 @@
 import { useForm, ValidationError } from "@formspree/react";
 import { Send, CheckCircle2, Loader2 } from "lucide-react";
 
-const FORM_ID = "mgojglkl";
+const FORM_ID = "meeyrjwq";
 
 const fieldClass =
   "w-full rounded-lg border border-line bg-white px-4 py-3 text-sm text-ink outline-none transition-all duration-200 ease-premium focus:border-primary focus:ring-4 focus:ring-primary/10";
