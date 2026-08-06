@@ -13,9 +13,11 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <section className="container-x py-20 sm:py-28">
+    <section className="relative">
+      <div className="bg-grid bg-grid-fade absolute inset-x-0 top-0 h-72" />
+      <div className="container-x relative py-20 sm:py-24">
       <p className="section-label">Get In Touch</p>
-      <h1 className="mb-4 max-w-2xl text-balance font-heading text-5xl font-bold tracking-tightest2 text-ink">
+      <h1 className="mb-4 max-w-2xl text-balance font-heading text-4xl font-bold tracking-tightest2 text-ink sm:text-5xl">
         Contact Us
       </h1>
       <p className="mb-7 max-w-xl leading-relaxed text-ink/55">
@@ -50,6 +52,7 @@ export default function ContactPage() {
           </div>
         </div>
       </Reveal>
+      </div>
     </section>
   );
 }

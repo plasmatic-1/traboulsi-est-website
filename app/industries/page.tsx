@@ -10,9 +10,11 @@ export const metadata: Metadata = {
 
 export default function IndustriesPage() {
   return (
-    <section className="container-x py-20 sm:py-28">
+    <section className="relative">
+      <div className="bg-grid bg-grid-fade absolute inset-x-0 top-0 h-72" />
+      <div className="container-x relative py-20 sm:py-24">
       <p className="section-label">Who We Serve</p>
-      <h1 className="mb-12 max-w-2xl text-balance font-heading text-5xl font-bold tracking-tightest2 text-ink">
+      <h1 className="mb-12 max-w-2xl text-balance font-heading text-4xl font-bold tracking-tightest2 text-ink sm:text-5xl">
         Industries We Serve
       </h1>
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -28,6 +30,7 @@ export default function IndustriesPage() {
             </Reveal>
           );
         })}
+      </div>
       </div>
     </section>
   );

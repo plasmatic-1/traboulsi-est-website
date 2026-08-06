@@ -26,12 +26,15 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
   if (!category) notFound();
 
   return (
-    <section className="container-x py-20 sm:py-28">
-      <p className="section-label">Our Range</p>
-      <h1 className="mb-12 max-w-2xl text-balance font-heading text-5xl font-bold tracking-tightest2 text-ink">
-        {category}
-      </h1>
-      <ProductsClient initialCategory={category} />
+    <section className="relative">
+      <div className="bg-grid bg-grid-fade absolute inset-x-0 top-0 h-72" />
+      <div className="container-x relative py-20 sm:py-24">
+        <p className="section-label">Our Range</p>
+        <h1 className="mb-10 max-w-2xl text-balance font-heading text-4xl font-bold tracking-tightest2 text-ink sm:text-5xl">
+          {category}
+        </h1>
+        <ProductsClient initialCategory={category} />
+      </div>
     </section>
   );
 }

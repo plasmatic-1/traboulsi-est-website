@@ -10,9 +10,11 @@ export const metadata: Metadata = {
 
 export default function ClientsPage() {
   return (
-    <section className="container-x py-20 sm:py-28">
+    <section className="relative">
+      <div className="bg-grid bg-grid-fade absolute inset-x-0 top-0 h-72" />
+      <div className="container-x relative py-20 sm:py-24">
       <p className="section-label">Trusted Across Lebanon</p>
-      <h1 className="mb-4 max-w-2xl text-balance font-heading text-5xl font-bold tracking-tightest2 text-ink">
+      <h1 className="mb-4 max-w-2xl text-balance font-heading text-4xl font-bold tracking-tightest2 text-ink sm:text-5xl">
         Our Clients
       </h1>
       <p className="mb-14 max-w-2xl leading-relaxed text-ink/55">
@@ -42,6 +44,7 @@ export default function ClientsPage() {
             </Reveal>
           );
         })}
+      </div>
       </div>
     </section>
   );

@@ -22,4 +22,22 @@ export const siteConfig = {
   ],
   aboutImage: "/images/about/tra1.jpg",
   founded: 1982,
+  // Real videos from the company Facebook page (facebook.com/traboulsi.est)
+  videos: [
+    {
+      title: "Bake Me Out — Beirut",
+      caption: "Complete equipment fit-out for a bakery & café",
+      href: "https://www.facebook.com/reel/37406912185588934",
+    },
+    {
+      title: "Beirut Souks",
+      caption: "Equipping supermarkets, restaurants & commercial kitchens",
+      href: "https://www.facebook.com/reel/1359624475586867",
+    },
+    {
+      title: "Commercial Blenders",
+      caption: "Product spotlight from our equipment range",
+      href: "https://www.facebook.com/reel/945741581369070",
+    },
+  ],
 };
