@@ -52,7 +52,8 @@ export default function HomePage() {
           </Reveal>
           <Reveal delay={0.08}>
             <h1 className="max-w-2xl text-balance font-heading text-4xl font-bold leading-[1.08] tracking-tightest2 sm:text-5xl lg:text-6xl">
-              Commercial Kitchen Equipment for Restaurants, Hotels &amp; Hospitals
+              Commercial Kitchen Equipment for{" "}
+              <span className="text-accent-light">Restaurants, Hotels &amp; Hospitals</span>
             </h1>
           </Reveal>
           <Reveal delay={0.16}>
@@ -84,23 +85,41 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Why Choose Us */}
-      <section className="bg-surface py-24">
-        <div className="container-x">
-          <Reveal>
-            <p className="section-label">Why Choose Us</p>
-            <h2 className="mb-14 max-w-xl text-balance font-heading text-4xl font-bold text-ink">
-              A partner you can rely on
-            </h2>
-          </Reveal>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
+      {/* Why Choose Us — editorial numbered rows */}
+      <section className="bg-surface py-24 sm:py-28">
+        <div className="container-x grid gap-12 lg:grid-cols-[1fr_1.4fr] lg:gap-20">
+          <div>
+            <div className="lg:sticky lg:top-28">
+              <Reveal>
+                <p className="section-label">Why Choose Us</p>
+                <h2 className="max-w-md text-balance font-heading text-4xl font-bold text-ink">
+                  A partner you can <span className="text-accent">rely on</span>
+                </h2>
+                <p className="mt-5 max-w-sm leading-relaxed text-ink/55">
+                  Four decades of equipping Lebanon&apos;s kitchens, one business at a time.
+                </p>
+                <Link href="/about" className="btn-outline mt-8">
+                  About Traboulsi Est. <ArrowRight size={16} />
+                </Link>
+              </Reveal>
+            </div>
+          </div>
+
+          <div>
             {whyUs.map((w, i) => (
-              <Reveal key={w.title} delay={i * 0.06} className="card p-7">
-                <span className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10">
-                  <w.icon className="text-accent" size={22} />
+              <Reveal
+                key={w.title}
+                delay={i * 0.05}
+                className="group flex items-start gap-6 border-b border-line py-7 first:pt-0 last:border-b-0 sm:gap-8"
+              >
+                <span className="section-num pt-1">0{i + 1}</span>
+                <span className="mt-0.5 flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white shadow-xs transition-colors duration-300 ease-premium group-hover:bg-accent">
+                  <w.icon className="text-accent transition-colors duration-300 ease-premium group-hover:text-white" size={20} />
                 </span>
-                <h3 className="mb-2 font-heading text-base font-semibold text-ink">{w.title}</h3>
-                <p className="text-sm leading-relaxed text-ink/55">{w.copy}</p>
+                <div>
+                  <h3 className="mb-1.5 font-heading text-lg font-semibold text-ink">{w.title}</h3>
+                  <p className="max-w-md text-sm leading-relaxed text-ink/55">{w.copy}</p>
+                </div>
               </Reveal>
             ))}
           </div>
@@ -130,7 +149,10 @@ export default function HomePage() {
               return (
                 <Reveal key={cat} delay={i * 0.08}>
                   <Link href={`/products/${categorySlugs[cat]}`} className="card group block overflow-hidden">
-                    <div className="relative aspect-[4/3] w-full overflow-hidden bg-surface">
+                    <div className="relative aspect-[4/3] w-full overflow-hidden bg-gradient-to-b from-mist to-surface">
+                      <span className="absolute left-5 top-4 z-10 font-heading text-sm font-semibold tabular-nums text-primary/30 transition-colors duration-300 ease-premium group-hover:text-accent">
+                        0{i + 1}
+                      </span>
                       {sample && (
                         <Image
                           src={sample.image}
@@ -140,15 +162,14 @@ export default function HomePage() {
                         />
                       )}
                     </div>
-                    <div className="flex items-center justify-between p-5">
+                    <div className="flex items-center justify-between border-t border-line/70 p-5">
                       <div>
                         <h3 className="font-heading text-lg font-semibold text-ink">{cat}</h3>
                         <p className="mt-1 text-sm text-ink/50">{count} products</p>
                       </div>
-                      <ArrowRight
-                        size={18}
-                        className="shrink-0 text-ink/30 transition-all duration-300 ease-premium group-hover:translate-x-1 group-hover:text-accent"
-                      />
+                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-line text-ink/40 transition-all duration-300 ease-premium group-hover:border-accent group-hover:bg-accent group-hover:text-white">
+                        <ArrowRight size={15} />
+                      </span>
                     </div>
                   </Link>
                 </Reveal>
@@ -202,16 +223,18 @@ export default function HomePage() {
             <p className="mb-5 font-heading text-xs font-semibold uppercase tracking-[0.2em] text-white/40">
               Among the businesses that trust us
             </p>
-            <div className="flex flex-wrap gap-2.5">
-              {trustedClients.map((c) => (
-                <span key={c} className="stat-chip !py-1.5 !text-sm">
-                  {c}
-                </span>
-              ))}
+            <div className="marquee -mx-5 px-5 sm:-mx-8 sm:px-8">
+              <div className="marquee-track py-1">
+                {[...trustedClients, ...trustedClients].map((c, i) => (
+                  <span key={`${c}-${i}`} className="stat-chip shrink-0 !py-1.5 !text-sm">
+                    {c}
+                  </span>
+                ))}
+              </div>
             </div>
             <Link
               href="/clients"
-              className="group mt-6 inline-flex items-center gap-1.5 font-heading text-sm font-semibold text-accent transition-colors hover:text-white"
+              className="group mt-7 inline-flex items-center gap-1.5 font-heading text-sm font-semibold text-accent transition-colors hover:text-white"
             >
               See all our clients
               <ArrowRight size={15} className="transition-transform duration-300 ease-premium group-hover:translate-x-1" />
@@ -245,48 +268,85 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* See Our Work in Action — real videos from the company Facebook page */}
-      <section className="relative overflow-hidden bg-primary-deep py-24">
+      {/* See Our Equipment at Work — videos self-hosted, playing directly on the site */}
+      <section className="relative overflow-hidden bg-primary-deep py-24 sm:py-28">
         <div className="bg-dots-dark absolute inset-0" />
         <div className="container-x relative">
-          <Reveal>
-            <div className="mb-14 flex flex-col items-start justify-between gap-5 sm:flex-row sm:items-end">
-              <div>
+          <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-20">
+            <div>
+              <Reveal>
                 <p className="section-label">Projects &amp; Installations</p>
                 <h2 className="max-w-xl text-balance font-heading text-4xl font-bold text-white">
-                  See Our Work in Action
+                  See our equipment <span className="text-accent-light">at work</span>
                 </h2>
-              </div>
-              <a
-                href={siteConfig.facebook}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex shrink-0 items-center gap-1.5 font-heading text-sm font-semibold text-accent transition-colors hover:text-white"
-              >
-                More on Facebook
-                <ArrowUpRight size={15} className="transition-transform duration-300 ease-premium group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </a>
+                <p className="mt-6 max-w-md leading-relaxed text-white/60">
+                  Real projects, filmed on site — from complete bakery fit-outs to supermarket
+                  refrigeration. This is the equipment we design, manufacture, install and maintain.
+                </p>
+              </Reveal>
+              <Reveal delay={0.1}>
+                <div className="mt-8 flex flex-wrap items-center gap-4">
+                  <Link href="/#contact" className="btn-accent">
+                    Start Your Project <ArrowRight size={16} />
+                  </Link>
+                  <a
+                    href={siteConfig.facebook}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group inline-flex items-center gap-1.5 font-heading text-sm font-semibold text-white/60 transition-colors hover:text-white"
+                  >
+                    More on Facebook
+                    <ArrowUpRight size={15} className="transition-transform duration-300 ease-premium group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </a>
+                </div>
+              </Reveal>
             </div>
-          </Reveal>
 
-          <div className="grid gap-6 sm:grid-cols-3">
-            {siteConfig.videos.map((v, i) => (
-              <Reveal key={v.href} delay={i * 0.08}>
-                <a
-                  href={v.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex h-full flex-col rounded-2xl border border-white/10 bg-white/5 p-7 transition-all duration-500 ease-premium hover:-translate-y-1 hover:border-accent/40 hover:bg-white/10"
+            {/* Featured video */}
+            <Reveal delay={0.12}>
+              <div className="group relative mx-auto w-full max-w-sm overflow-hidden rounded-3xl border border-white/10 shadow-cardHover">
+                <video
+                  controls
+                  playsInline
+                  preload="none"
+                  poster={siteConfig.videos[0].poster}
+                  className="aspect-[9/16] w-full bg-primary-deep object-cover"
                 >
-                  <span className="mb-6 flex h-14 w-14 items-center justify-center rounded-full bg-accent text-white shadow-glow transition-transform duration-300 ease-premium group-hover:scale-110">
-                    <Play size={20} className="ml-0.5 fill-current" />
+                  <source src={siteConfig.videos[0].src} type="video/mp4" />
+                </video>
+                <div className="pointer-events-none absolute inset-x-0 top-0 flex items-start justify-between p-5">
+                  <span className="rounded-full bg-primary-deep/70 px-3.5 py-1.5 font-heading text-xs font-semibold text-white backdrop-blur-sm">
+                    {siteConfig.videos[0].title}
                   </span>
-                  <h3 className="mb-2 font-heading text-lg font-semibold text-white">{v.title}</h3>
-                  <p className="mb-6 text-sm leading-relaxed text-white/60">{v.caption}</p>
-                  <span className="mt-auto inline-flex items-center gap-1.5 font-heading text-xs font-semibold uppercase tracking-[0.14em] text-white/50 transition-colors group-hover:text-accent">
-                    Watch Video <ArrowUpRight size={13} />
+                  <span className="flex items-center gap-1.5 rounded-full bg-accent px-3.5 py-1.5 font-heading text-xs font-semibold text-white">
+                    <Play size={11} className="fill-current" /> Featured
                   </span>
-                </a>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+
+          {/* More videos */}
+          <div className="mt-16 grid gap-6 sm:grid-cols-2">
+            {siteConfig.videos.slice(1).map((v, i) => (
+              <Reveal key={v.src} delay={i * 0.08}>
+                <div className="group overflow-hidden rounded-2xl border border-white/10 bg-white/5 transition-all duration-500 ease-premium hover:-translate-y-1 hover:border-white/25">
+                  <div className="grid sm:grid-cols-[200px_1fr]">
+                    <video
+                      controls
+                      playsInline
+                      preload="none"
+                      poster={v.poster}
+                      className="aspect-[9/16] w-full bg-primary-deep object-cover sm:aspect-auto sm:h-full"
+                    >
+                      <source src={v.src} type="video/mp4" />
+                    </video>
+                    <div className="flex flex-col justify-center p-7">
+                      <h3 className="mb-2 font-heading text-lg font-semibold text-white">{v.title}</h3>
+                      <p className="text-sm leading-relaxed text-white/60">{v.caption}</p>
+                    </div>
+                  </div>
+                </div>
               </Reveal>
             ))}
           </div>
@@ -313,47 +373,67 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Contact — embedded directly, no click-through needed */}
-      <section id="contact" className="bg-surface py-24">
+      {/* Contact — split panel: dark info side + form side */}
+      <section id="contact" className="bg-surface py-24 sm:py-28">
         <div className="container-x">
           <Reveal>
             <p className="section-label">Get In Touch</p>
             <h2 className="mb-12 max-w-xl text-balance font-heading text-4xl font-bold text-ink">
-              Ready to equip your business?
+              Ready to equip <span className="text-accent">your business?</span>
             </h2>
           </Reveal>
 
-          <Reveal delay={0.1} className="mx-auto max-w-2xl">
-            <div className="card p-7">
-              <ContactForm />
-            </div>
+          <Reveal delay={0.1}>
+            <div className="overflow-hidden rounded-3xl border border-line bg-white shadow-cardHover">
+              <div className="grid lg:grid-cols-[1fr_1.35fr]">
+                {/* Info panel */}
+                <div className="relative overflow-hidden bg-primary-deep p-8 text-white sm:p-10">
+                  <div className="bg-dots-dark absolute inset-0" />
+                  <div className="relative">
+                    <h3 className="font-heading text-2xl font-bold">Talk to our team</h3>
+                    <p className="mt-3 max-w-xs text-sm leading-relaxed text-white/60">
+                      Call, email, or send a message — we&apos;ll help you spec the right equipment
+                      for your space and budget.
+                    </p>
 
-            <div className="mt-6 grid gap-4 sm:grid-cols-2">
-              <div className="flex items-center gap-3 text-sm text-ink/70">
-                <Phone size={17} className="shrink-0 text-accent" />
-                <span><span className="text-ink/50">Tel:</span> <a href={siteConfig.phoneHref} className="hover:text-primary">{siteConfig.phone}</a></span>
+                    <div className="mt-10 flex flex-col gap-5 text-sm">
+                      <a href={siteConfig.phoneHref} className="group flex items-center gap-3.5 text-white/80 transition-colors hover:text-white">
+                        <span className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/5 transition-colors duration-300 ease-premium group-hover:border-accent group-hover:bg-accent">
+                          <Phone size={16} />
+                        </span>
+                        {siteConfig.phone}
+                      </a>
+                      <a href={siteConfig.mobileHref} className="group flex items-center gap-3.5 text-white/80 transition-colors hover:text-white">
+                        <span className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/5 transition-colors duration-300 ease-premium group-hover:border-accent group-hover:bg-accent">
+                          <Smartphone size={16} />
+                        </span>
+                        {siteConfig.mobile}
+                      </a>
+                      <a href={`mailto:${siteConfig.email}`} className="group flex items-center gap-3.5 text-white/80 transition-colors hover:text-white">
+                        <span className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/5 transition-colors duration-300 ease-premium group-hover:border-accent group-hover:bg-accent">
+                          <Mail size={16} />
+                        </span>
+                        {siteConfig.email}
+                      </a>
+                      <a href={siteConfig.mapsLink} target="_blank" rel="noopener noreferrer" className="group flex items-center gap-3.5 text-white/80 transition-colors hover:text-white">
+                        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/15 bg-white/5 transition-colors duration-300 ease-premium group-hover:border-accent group-hover:bg-accent">
+                          <MapPin size={16} />
+                        </span>
+                        {siteConfig.address}
+                      </a>
+                    </div>
+
+                    <p className="mt-10 border-t border-white/10 pt-6 text-xs leading-relaxed text-white/40">
+                      Fax: {siteConfig.fax} · Branches in Deir el Zahrani &amp; Khalde
+                    </p>
+                  </div>
+                </div>
+
+                {/* Form panel */}
+                <div className="p-8 sm:p-10">
+                  <ContactForm />
+                </div>
               </div>
-              <div className="flex items-center gap-3 text-sm text-ink/70">
-                <Smartphone size={17} className="shrink-0 text-accent" />
-                <span><span className="text-ink/50">Mobile:</span> <a href={siteConfig.mobileHref} className="hover:text-primary">{siteConfig.mobile}</a></span>
-              </div>
-              <div className="flex items-center gap-3 text-sm text-ink/70">
-                <Printer size={17} className="shrink-0 text-accent" />
-                <span><span className="text-ink/50">Fax:</span> <a href={siteConfig.faxHref} className="hover:text-primary">{siteConfig.fax}</a></span>
-              </div>
-              <div className="flex items-center gap-3 text-sm text-ink/70">
-                <Mail size={17} className="shrink-0 text-accent" />
-                <a href={`mailto:${siteConfig.email}`} className="hover:text-primary">{siteConfig.email}</a>
-              </div>
-              <a
-                href={siteConfig.mapsLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-start gap-3 text-sm text-ink/70 hover:text-primary sm:col-span-2"
-              >
-                <MapPin size={17} className="mt-0.5 shrink-0 text-accent" />
-                {siteConfig.address}
-              </a>
             </div>
           </Reveal>
         </div>
