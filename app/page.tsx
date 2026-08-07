@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, ArrowUpRight, Play, ShieldCheck, Award, Users, Clock, Wrench, Phone, Mail, MapPin, Smartphone, Printer } from "lucide-react";
+import { ArrowRight, ArrowUpRight, ShieldCheck, Award, Users, Clock, Wrench, Phone, Mail, MapPin, Smartphone, Printer } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import ProductCard from "@/components/ProductCard";
 import ContactForm from "@/components/ContactForm";
@@ -190,7 +190,7 @@ export default function HomePage() {
           </Reveal>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {featured.map((p, i) => (
-              <Reveal key={p.id} delay={i * 0.06}>
+              <Reveal key={p.id} delay={i * 0.06} className="h-full">
                 <ProductCard product={p} />
               </Reveal>
             ))}
@@ -272,84 +272,68 @@ export default function HomePage() {
       <section className="relative overflow-hidden bg-primary-deep py-24 sm:py-28">
         <div className="bg-dots-dark absolute inset-0" />
         <div className="container-x relative">
-          <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-20">
-            <div>
-              <Reveal>
+          <Reveal>
+            <div className="mb-14 flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
+              <div>
                 <p className="section-label">Projects &amp; Installations</p>
                 <h2 className="max-w-xl text-balance font-heading text-4xl font-bold text-white">
                   See our equipment <span className="text-accent-light">at work</span>
                 </h2>
-                <p className="mt-6 max-w-md leading-relaxed text-white/60">
+                <p className="mt-5 max-w-lg leading-relaxed text-white/60">
                   Real projects, filmed on site — from complete bakery fit-outs to supermarket
                   refrigeration. This is the equipment we design, manufacture, install and maintain.
                 </p>
-              </Reveal>
-              <Reveal delay={0.1}>
-                <div className="mt-8 flex flex-wrap items-center gap-4">
-                  <Link href="/#contact" className="btn-accent">
-                    Start Your Project <ArrowRight size={16} />
-                  </Link>
-                  <a
-                    href={siteConfig.facebook}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group inline-flex items-center gap-1.5 font-heading text-sm font-semibold text-white/60 transition-colors hover:text-white"
-                  >
-                    More on Facebook
-                    <ArrowUpRight size={15} className="transition-transform duration-300 ease-premium group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                  </a>
-                </div>
-              </Reveal>
-            </div>
-
-            {/* Featured video */}
-            <Reveal delay={0.12}>
-              <div className="group relative mx-auto w-full max-w-sm overflow-hidden rounded-3xl border border-white/10 shadow-cardHover">
-                <video
-                  controls
-                  playsInline
-                  preload="none"
-                  poster={siteConfig.videos[0].poster}
-                  className="aspect-[9/16] w-full bg-primary-deep object-cover"
-                >
-                  <source src={siteConfig.videos[0].src} type="video/mp4" />
-                </video>
-                <div className="pointer-events-none absolute inset-x-0 top-0 flex items-start justify-between p-5">
-                  <span className="rounded-full bg-primary-deep/70 px-3.5 py-1.5 font-heading text-xs font-semibold text-white backdrop-blur-sm">
-                    {siteConfig.videos[0].title}
-                  </span>
-                  <span className="flex items-center gap-1.5 rounded-full bg-accent px-3.5 py-1.5 font-heading text-xs font-semibold text-white">
-                    <Play size={11} className="fill-current" /> Featured
-                  </span>
-                </div>
               </div>
-            </Reveal>
-          </div>
+              <Link href="/#contact" className="btn-accent shrink-0">
+                Start Your Project <ArrowRight size={16} />
+              </Link>
+            </div>
+          </Reveal>
 
-          {/* More videos */}
-          <div className="mt-16 grid gap-6 sm:grid-cols-2">
-            {siteConfig.videos.slice(1).map((v, i) => (
-              <Reveal key={v.src} delay={i * 0.08}>
-                <div className="group overflow-hidden rounded-2xl border border-white/10 bg-white/5 transition-all duration-500 ease-premium hover:-translate-y-1 hover:border-white/25">
-                  <div className="grid sm:grid-cols-[200px_1fr]">
+          {/*
+            Uniform gallery: the three source clips have different native aspect
+            ratios (two 9:16, one 16:9), so every card gets an identical 4/5 box
+            and object-cover fills it — equal size, no letterboxing.
+          */}
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {siteConfig.videos.map((v, i) => (
+              <Reveal key={v.src} delay={i * 0.08} className="h-full">
+                <figure className="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-cardHover transition-all duration-500 ease-premium hover:-translate-y-1 hover:border-white/25">
+                  <div className="relative aspect-[4/5] w-full overflow-hidden bg-primary-deep">
                     <video
                       controls
                       playsInline
                       preload="none"
                       poster={v.poster}
-                      className="aspect-[9/16] w-full bg-primary-deep object-cover sm:aspect-auto sm:h-full"
+                      aria-label={`${v.title} — ${v.caption}`}
+                      className="absolute inset-0 h-full w-full object-cover"
                     >
                       <source src={v.src} type="video/mp4" />
+                      Your browser does not support embedded video.
                     </video>
-                    <div className="flex flex-col justify-center p-7">
-                      <h3 className="mb-2 font-heading text-lg font-semibold text-white">{v.title}</h3>
-                      <p className="text-sm leading-relaxed text-white/60">{v.caption}</p>
-                    </div>
                   </div>
-                </div>
+                  <figcaption className="flex flex-1 flex-col border-t border-white/10 p-6">
+                    <h3 className="font-heading text-base font-semibold text-white">{v.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-white/55">{v.caption}</p>
+                  </figcaption>
+                </figure>
               </Reveal>
             ))}
           </div>
+
+          <Reveal delay={0.24}>
+            <div className="mt-12 flex justify-center">
+              <a
+                href={siteConfig.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-1.5 font-heading text-sm font-semibold text-white/60 transition-colors hover:text-white"
+              >
+                More projects on Facebook
+                <ArrowUpRight size={15} className="transition-transform duration-300 ease-premium group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </a>
+            </div>
+          </Reveal>
         </div>
       </section>
 
