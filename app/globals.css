@@ -39,16 +39,17 @@
     @apply h-px w-6 bg-accent/60;
   }
 
+  /* Pill buttons — the signature control shape of the redesign */
   .btn-primary {
-    @apply relative inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3 font-heading text-sm font-semibold text-white shadow-xs transition-all duration-300 ease-premium hover:-translate-y-px hover:bg-primary-dark hover:shadow-cardHover active:translate-y-0 active:scale-[0.98];
+    @apply relative inline-flex items-center justify-center gap-2 rounded-full bg-primary px-7 py-3 font-heading text-sm font-semibold text-white shadow-xs transition-all duration-300 ease-premium hover:-translate-y-px hover:bg-primary-dark hover:shadow-cardHover active:translate-y-0 active:scale-[0.98];
   }
 
   .btn-accent {
-    @apply relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-lg bg-accent px-6 py-3 font-heading text-sm font-semibold text-white shadow-glow transition-all duration-300 ease-premium hover:-translate-y-px hover:bg-accent-dark hover:shadow-glow active:translate-y-0 active:scale-[0.98];
+    @apply relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full bg-accent px-7 py-3 font-heading text-sm font-semibold text-white shadow-glow transition-all duration-300 ease-premium hover:-translate-y-px hover:bg-accent-dark hover:shadow-glow active:translate-y-0 active:scale-[0.98];
   }
 
   .btn-outline {
-    @apply inline-flex items-center justify-center gap-2 rounded-lg border border-primary/25 px-6 py-3 font-heading text-sm font-semibold text-primary transition-all duration-300 ease-premium hover:-translate-y-px hover:border-primary hover:bg-primary hover:text-white active:translate-y-0 active:scale-[0.98];
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-primary/25 px-7 py-3 font-heading text-sm font-semibold text-primary transition-all duration-300 ease-premium hover:-translate-y-px hover:border-primary hover:bg-primary hover:text-white active:translate-y-0 active:scale-[0.98];
   }
 
   .card {
@@ -57,6 +58,11 @@
 
   .stat-chip {
     @apply inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm text-white/85 backdrop-blur-sm;
+  }
+
+  /* Editorial section numbering */
+  .section-num {
+    @apply font-heading text-sm font-semibold tabular-nums text-accent/80;
   }
 
   /* Subtle engineering-grid texture for light sections */
@@ -77,6 +83,25 @@
     background-size: 26px 26px;
   }
 
+  /* Continuous client-name marquee (content is rendered twice for a seamless loop) */
+  .marquee {
+    @apply overflow-hidden;
+    -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  }
+  .marquee-track {
+    @apply flex w-max gap-3;
+    animation: marquee 45s linear infinite;
+  }
+  .marquee:hover .marquee-track {
+    animation-play-state: paused;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track {
+      animation: none;
+    }
+  }
+
   .fade-up {
     animation: fadeUp 0.6s ease forwards;
   }
@@ -91,4 +116,9 @@
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(16px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
