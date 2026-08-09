@@ -7,16 +7,23 @@ import type { Product } from "@/lib/products";
 export default function ProductCard({ product }: { product: Product }) {
   return (
     <article className="card group flex h-full flex-col overflow-hidden">
-      {/* Fixed 4/3 frame + object-contain keeps every product image the same
-          size on screen regardless of the source file's own dimensions. */}
-      <div className="relative aspect-[4/3] w-full overflow-hidden bg-gradient-to-b from-white to-surface">
+      {/* Every card uses the same fixed 4/3 frame so the grid stays aligned.
+          Catalogue cutouts are letterboxed with padding; lifestyle photography
+          from the company's own posts fills the frame edge-to-edge. */}
+      <div
+        className={`relative aspect-[4/3] w-full overflow-hidden ${
+          product.lifestyle ? "bg-primary-deep" : "bg-gradient-to-b from-white to-surface"
+        }`}
+      >
         <Image
           src={product.image}
           alt={`${product.name} — ${product.model}`}
           fill
           loading="lazy"
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
-          className="object-contain p-6 transition-transform duration-500 ease-premium group-hover:scale-[1.06]"
+          className={`transition-transform duration-500 ease-premium group-hover:scale-[1.06] ${
+            product.lifestyle ? "object-cover" : "object-contain p-6"
+          }`}
         />
         <div className="absolute inset-0 flex flex-col items-start justify-end gap-1.5 bg-gradient-to-t from-primary-deep/92 via-primary-deep/25 to-transparent p-5 opacity-0 transition-opacity duration-300 ease-premium group-hover:opacity-100">
           <p className="font-heading text-sm font-semibold text-white">{product.name}</p>

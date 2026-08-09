@@ -6,6 +6,13 @@ export type Product = {
   model: string;
   category: Category;
   image: string;
+  /**
+   * True for full-bleed lifestyle photography (the product shown in a real
+   * setting) sourced from the company's own Facebook posts. These fill the
+   * card edge-to-edge; the default catalogue shots sit on a plain background
+   * and are letterboxed with padding instead.
+   */
+  lifestyle?: boolean;
 };
 
 export const categories: Category[] = [
@@ -96,8 +103,8 @@ export const products: Product[] = [
   { id: "187", name: "Hot Dog Roller", model: "TE-187", category: "Heating", image: "/images/products/187.jpg" },
   { id: "189", name: "Contact Grill Double", model: "TE-189", category: "Heating", image: "/images/products/189.jpg" },
   { id: "191", name: "Contact Grill", model: "TE-191", category: "Heating", image: "/images/products/191.jpg" },
-  { id: "192", name: "Waffle Machine", model: "TE-192", category: "Heating", image: "/images/products/192.jpg" },
-  { id: "193", name: "Crepe Machine", model: "TE-193", category: "Heating", image: "/images/products/193.jpg" },
+  { id: "192", name: "Waffle Machine", model: "TE-192", category: "Heating", image: "/images/products/192.jpg", lifestyle: true },
+  { id: "193", name: "Crepe Machine", model: "TE-193", category: "Heating", image: "/images/products/193.jpg", lifestyle: true },
   { id: "194", name: "Hot Dog Warmer", model: "TE-194", category: "Heating", image: "/images/products/194.jpg" },
   { id: "195", name: "Work Table", model: "TE-195", category: "Stainless, Processing and Others", image: "/images/products/195.jpg" },
   { id: "196", name: "Sinks", model: "TE-196", category: "Stainless, Processing and Others", image: "/images/products/196.jpg" },
@@ -120,7 +127,7 @@ export const products: Product[] = [
   { id: "1", name: "Set", model: "TE-1", category: "Stainless, Processing and Others", image: "/images/products/1.jpg" },
   { id: "2", name: "Set", model: "TE-2", category: "Stainless, Processing and Others", image: "/images/products/2.jpg" },
   { id: "220", name: "Carrot Juicer", model: "TE-220", category: "Stainless, Processing and Others", image: "/images/products/220.jpg" },
-  { id: "222", name: "Electric Orange Juicer", model: "TE-222", category: "Stainless, Processing and Others", image: "/images/products/222.jpg" },
+  { id: "222", name: "Electric Orange Juicer", model: "TE-222", category: "Stainless, Processing and Others", image: "/images/products/222.jpg", lifestyle: true },
   { id: "232", name: "Vegetable Cutter Machine", model: "TE-232", category: "Stainless, Processing and Others", image: "/images/products/232.jpg" },
   { id: "256", name: "Espresso Machine", model: "TE-256", category: "Stainless, Processing and Others", image: "/images/products/256.jpg" },
   { id: "236", name: "Milk Shaker", model: "TE-236", category: "Stainless, Processing and Others", image: "/images/products/236.jpg" },
