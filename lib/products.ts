@@ -161,7 +161,7 @@ export const products: Product[] = [
   { id: "259", name: "Electric Scale", model: "TE-259", category: "Stainless, Processing and Others", image: "/images/products/259.jpg" },
   { id: "260", name: "Electric Scale", model: "TE-260", category: "Stainless, Processing and Others", image: "/images/products/260.png" },
   { id: "223", name: "Popcorn Machine", model: "TE-223", category: "Stainless, Processing and Others", image: "/images/products/223.jpg" },
-  { id: "233", name: "Candy Machine", model: "TE-233", category: "Stainless, Processing and Others", image: "/images/products/233.png" },
+  { id: "233", name: "Candy Machine", model: "TE-233", category: "Stainless, Processing and Others", image: "/images/products/233.jpg" },
   { id: "163", name: "Lahme Ajeen Oven", model: "TE-163", category: "Heating", image: "/images/products/163.jpg" },
   { id: "168", name: "Steel BBQ", model: "TE-168", category: "Heating", image: "/images/products/168.jpg" },
   { id: "245", name: "Market Cart", model: "TE-245", category: "Stainless, Processing and Others", image: "/images/products/245.jpg" },
