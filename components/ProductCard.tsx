@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import type { Product } from "@/lib/products";
+import { WhatsAppIcon, whatsappQuoteHref } from "@/components/WhatsApp";
 
 export default function ProductCard({ product }: { product: Product }) {
   return (
@@ -36,13 +37,20 @@ export default function ProductCard({ product }: { product: Product }) {
         <p className="mt-1.5 inline-flex w-fit items-center rounded-md bg-primary/[0.06] px-2 py-0.5 font-body text-[11px] font-medium tracking-wide text-primary/80">
           {product.model}
         </p>
-        <span className="mt-4 inline-flex items-center gap-1.5 font-heading text-xs font-semibold text-ink/45 transition-colors duration-300 ease-premium group-hover:text-accent">
-          View Details
+        <a
+          href={whatsappQuoteHref(product.name)}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`Request a quote for ${product.name} on WhatsApp`}
+          className="mt-4 inline-flex items-center gap-1.5 font-heading text-xs font-semibold text-ink/45 transition-colors duration-300 ease-premium hover:text-[#128C4A]"
+        >
+          <WhatsAppIcon size={13} className="shrink-0" />
+          Request a Quote
           <ArrowUpRight
-            size={14}
+            size={13}
             className="transition-transform duration-300 ease-premium group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
           />
-        </span>
+        </a>
       </div>
     </article>
   );

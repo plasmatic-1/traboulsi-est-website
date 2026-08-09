@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X, Phone, ArrowRight } from "lucide-react";
 import { siteConfig } from "@/lib/siteConfig";
+import { WhatsAppIcon } from "@/components/WhatsApp";
 
 const links = [
   { href: "/", label: "Home" },
@@ -139,6 +140,17 @@ export default function Navbar() {
                 className="btn-accent mt-8 w-full"
               >
                 <Phone size={16} /> {siteConfig.phone}
+              </motion.a>
+              <motion.a
+                href={siteConfig.whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 14 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: (links.length + 1) * 0.05, ease: [0.16, 1, 0.3, 1] }}
+                className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-full border border-line px-7 py-3 font-heading text-sm font-semibold text-ink transition-colors duration-300 ease-premium hover:border-[#25D366] hover:text-[#128C4A]"
+              >
+                <WhatsAppIcon size={16} /> WhatsApp {siteConfig.whatsapp}
               </motion.a>
             </div>
           </motion.nav>

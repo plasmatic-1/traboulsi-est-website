@@ -2,6 +2,8 @@
 
 import { Phone, MapPin, Clock, Navigation, Mail, Building2 } from "lucide-react";
 import type { Branch } from "@/lib/locations";
+import { siteConfig } from "@/lib/siteConfig";
+import { WhatsAppIcon } from "@/components/WhatsApp";
 
 function HoursList({ hours, dense = false }: { hours: Branch["hours"]; dense?: boolean }) {
   return (
@@ -86,6 +88,17 @@ export function BranchCardFull({ branch }: { branch: Branch }) {
           <div className="flex items-center gap-2.5 text-sm text-ink/70">
             <Phone size={16} className="shrink-0 text-accent" />
             <a href={branch.phoneHref} className="hover:text-primary">{branch.phone}</a>
+          </div>
+          <div className="flex items-center gap-2.5 text-sm text-ink/70">
+            <WhatsAppIcon size={16} className="shrink-0 text-[#25D366]" />
+            <a
+              href={siteConfig.whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-primary"
+            >
+              WhatsApp {siteConfig.whatsapp}
+            </a>
           </div>
           <div className="flex items-center gap-2.5 text-sm text-ink/70">
             <Mail size={16} className="shrink-0 text-accent" />

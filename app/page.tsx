@@ -10,6 +10,7 @@ import { products, categories, categorySlugs } from "@/lib/products";
 import { industries, clientGroups } from "@/lib/clients";
 import { branches } from "@/lib/locations";
 import { industryIcon } from "@/components/IndustryIcon";
+import { WhatsAppIcon } from "@/components/WhatsApp";
 
 const whyUs = [
   { icon: ShieldCheck, title: "Professional Supplier", copy: "A dedicated team with deep knowledge of commercial kitchen and refrigeration equipment." },
@@ -392,6 +393,17 @@ export default function HomePage() {
                           <Smartphone size={16} />
                         </span>
                         {siteConfig.mobile}
+                      </a>
+                      <a
+                        href={siteConfig.whatsappHref}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group flex items-center gap-3.5 text-white/80 transition-colors hover:text-white"
+                      >
+                        <span className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/5 transition-colors duration-300 ease-premium group-hover:border-[#25D366] group-hover:bg-[#25D366]">
+                          <WhatsAppIcon size={16} />
+                        </span>
+                        WhatsApp {siteConfig.whatsapp}
                       </a>
                       <a href={`mailto:${siteConfig.email}`} className="group flex items-center gap-3.5 text-white/80 transition-colors hover:text-white">
                         <span className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/5 transition-colors duration-300 ease-premium group-hover:border-accent group-hover:bg-accent">

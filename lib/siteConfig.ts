@@ -6,6 +6,9 @@ export const siteConfig = {
   phoneHref: "tel:+9617530986",
   mobile: "+961 3 829 906",
   mobileHref: "tel:+9613829906",
+  // Official WhatsApp line. wa.me requires digits only — no +, spaces or dashes.
+  whatsapp: "+961 81 910 697",
+  whatsappHref: "https://wa.me/96181910697",
   fax: "+961 7 530 986",
   faxHref: "tel:+9617530986",
   email: "info@traboulsiest.com",

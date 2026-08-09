@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Phone, Mail, MapPin, Facebook } from "lucide-react";
 import { siteConfig } from "@/lib/siteConfig";
+import { WhatsAppIcon } from "@/components/WhatsApp";
 
 export default function Footer() {
   return (
@@ -47,6 +48,15 @@ export default function Footer() {
             </a>
             <a href={siteConfig.mobileHref} className="flex items-start gap-2.5 transition-colors hover:text-white">
               <Phone size={15} className="mt-0.5 shrink-0 text-accent" /> {siteConfig.mobile}
+            </a>
+            <a
+              href={siteConfig.whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-start gap-2.5 transition-colors hover:text-white"
+            >
+              <WhatsAppIcon size={15} className="mt-0.5 shrink-0 text-[#25D366]" />
+              WhatsApp {siteConfig.whatsapp}
             </a>
             <a href={`mailto:${siteConfig.email}`} className="flex items-start gap-2.5 transition-colors hover:text-white">
               <Mail size={15} className="mt-0.5 shrink-0 text-accent" /> {siteConfig.email}
